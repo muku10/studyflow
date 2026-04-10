@@ -1,0 +1,1321 @@
+{
+  "users": {
+    "demoschool": {
+      "subjects": [
+        {
+          "title": "Java language",
+          "description": "",
+          "startDate": "2026-04-10",
+          "deadline": "2026-08-08",
+          "priority": "medium",
+          "hoursPerDay": "2",
+          "id": "8e712a83-d823-4046-a105-b90bcfda71d2"
+        }
+      ],
+      "studyPlan": [
+        {
+          "date": "2026-04-10",
+          "dayLabel": "Fri, Apr 10",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-10-4rg9q",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-04-10",
+              "taskType": "Study",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Methods",
+                  "description": "In Java, a method is a block of code that performs a specific task. It is a fundamental concept in object-oriented programming (OOP). A method is called by its name, and it can take parameters and return values. The syntax for declaring a method is: `return-type method-name(parameter-list) { // method body }`. For example, a simple method to add two numbers is: `public int add(int a, int b) { return a + b; }`. A common mistake is to forget the return type or the method name. It's also important to note that method overloading is allowed in Java, which means multiple methods with the same name can be defined, but with different parameter lists.",
+                  "code": "public class Calculator {\n  public int add(int a, int b) {\n    return a + b;\n  }\n  public double add(double a, double b) {\n    return a + b;\n  }\n}",
+                  "exercise": "Write a Java method to calculate the area of a rectangle."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html",
+              "tip": "Practice writing methods with different return types and parameter lists.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-11",
+          "dayLabel": "Sat, Apr 11",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-11-w53en",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-04-11",
+              "taskType": "Study",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Functions",
+                  "description": "In Java, a function is a block of code that performs a specific task. It is also known as a method. A function can take parameters and return values. The syntax for declaring a function is: `return-type function-name (parameter-list) { // function body }`. For example, a simple function that adds two numbers is: `public int add(int a, int b) { return a + b; }`. A common mistake is to forget the return statement or to mismatch the return type with the actual returned value.",
+                  "code": "public class Main { public static void main(String[] args) { System.out.println(add(5, 7)); } public static int add(int a, int b) { return a + b; } }",
+                  "exercise": "Write a Java function that takes a string as input and returns the string in uppercase."
+                },
+                {
+                  "topic": "Java Object-Oriented Programming (OOP) Concepts",
+                  "description": "Java is an object-oriented programming language that supports encapsulation, inheritance, and polymorphism. A class is a blueprint for creating objects, and an object is an instance of a class. The syntax for declaring a class is: `public class ClassName { // class body }`. For example, a simple class that represents a car is: `public class Car { private String color; public Car(String color) { this.color = color; } public void honk() { System.out.println(\"Honk!\"); } }`. A common mistake is to confuse the concepts of class and object.",
+                  "code": "public class Main { public static void main(String[] args) { Car myCar = new Car(\"red\"); myCar.honk(); } } class Car { private String color; public Car(String color) { this.color = color; } public void honk() { System.out.println(\"Honk!\"); } }",
+                  "exercise": "Create a Java class that represents a bank account and has methods to deposit and withdraw money."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/index.html",
+              "tip": "Practice writing Java code every day to improve your skills.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-12",
+          "dayLabel": "Sun, Apr 12",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-12-337pw",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-04-12",
+              "taskType": "Study",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Methods",
+                  "description": "In Java, a method is a block of code that performs a specific task. Methods are also known as functions. A method can take parameters and return values. The syntax for declaring a method is: access_modifier return_type method_name(parameter_list). For example, a simple method to add two numbers can be declared as: public int add(int a, int b). A common mistake is to forget the return statement or to mismatch the return type with the actual returned value.",
+                  "code": "public class Calculator {\n  public int add(int a, int b) {\n    return a + b;\n  }\n  public static void main(String[] args) {\n    Calculator calc = new Calculator();\n    System.out.println(calc.add(5, 7));\n  }\n}",
+                  "exercise": "Write a Java method to find the maximum of two numbers."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html",
+              "tip": "Practice writing methods with different return types and parameters.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-13",
+          "dayLabel": "Mon, Apr 13",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-13-d9kby",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-04-13",
+              "taskType": "Study",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Object-Oriented Programming (OOP) Concepts",
+                  "description": "Object-Oriented Programming (OOP) is a programming paradigm that revolves around the concept of objects and classes. In Java, OOP is used to create reusable code, model real-world entities, and organize complex systems. A class is a blueprint or a template that defines the properties and behavior of an object. An object is an instance of a class, and it has its own set of attributes (data) and methods (functions). Inheritance, polymorphism, encapsulation, and abstraction are the four fundamental principles of OOP.",
+                  "code": "public class Animal {\n    private String name;\n    public Animal(String name) {\n        this.name = name;\n    }\n    public void eat() {\n        System.out.println(name + \" is eating\");\n    }\n}\n\npublic class Dog extends Animal {\n    public Dog(String name) {\n        super(name);\n    }\n    public void bark() {\n        System.out.println(\"Dog is barking\");\n    }\n}",
+                  "exercise": "Create a Java class called 'Vehicle' with attributes 'color' and 'speed', and methods 'accelerate()' and 'brake()'. Then, create a subclass 'Car' that extends 'Vehicle' and adds an additional attribute 'numberOfDoors' and a method 'lockDoors()'."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/java/concepts/index.html",
+              "tip": "Practice creating classes and objects in Java to solidify your understanding of OOP concepts.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-14",
+          "dayLabel": "Tue, Apr 14",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-14-dzvj3",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-04-14",
+              "taskType": "Study",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Methods",
+                  "description": "In Java, a method is a block of code that performs a specific task. It is a fundamental concept in object-oriented programming (OOP). A method is called on an object, and it can take parameters and return values. The syntax for declaring a method is: `access_modifier return_type method_name(parameter_list)`. For example, a simple method to add two numbers can be declared as: `public int add(int a, int b)`. A common mistake is to confuse method overloading with method overriding. Method overloading allows multiple methods with the same name but different parameters, while method overriding allows a subclass to provide a different implementation of a method already defined in its superclass.",
+                  "code": "public class Calculator {\n    public int add(int a, int b) {\n        return a + b;\n    }\n}",
+                  "exercise": "Write a Java method to calculate the area of a rectangle."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/java/concepts/class.html",
+              "tip": "Practice writing and calling methods with different parameters and return types.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-15",
+          "dayLabel": "Wed, Apr 15",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-15-bw1lv",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-04-15",
+              "taskType": "Study",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Methods",
+                  "description": "In Java, a method is a block of code that performs a specific task. It is a fundamental concept in object-oriented programming (OOP). A method can take parameters, return values, and can be reused multiple times in a program. Methods are used to organize code, reduce repetition, and improve modularity. A common mistake is to confuse methods with functions; methods are associated with objects or classes, whereas functions are standalone blocks of code. Syntax: `return-type method-name(parameter-list) { // method body }`. For example: `public int add(int a, int b) { return a + b; }`.",
+                  "code": "public class Calculator {\n  public int add(int a, int b) {\n    return a + b;\n  }\n  public static void main(String[] args) {\n    Calculator calc = new Calculator();\n    System.out.println(calc.add(5, 7));\n  }\n}",
+                  "exercise": "Write a Java method that takes a string as input and returns the string in uppercase."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/java/concepts/class.html",
+              "tip": "Practice writing methods with different return types and parameter lists.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-16",
+          "dayLabel": "Thu, Apr 16",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-16-gyu39",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-04-16",
+              "taskType": "Study",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Functions",
+                  "description": "In Java, a function is a block of code that performs a specific task. It is also known as a method. A function can take parameters and return values. The syntax for declaring a function is: `return-type function-name (parameter-list)`. For example, a simple function that adds two numbers is: `public static int add(int a, int b) { return a + b; }`. A common mistake is to forget the return statement or to mismatch the return type with the actual returned value.",
+                  "code": "public class Main { public static void main(String[] args) { System.out.println(add(5, 7)); } public static int add(int a, int b) { return a + b; } }",
+                  "exercise": "Write a Java function that takes a string as input and returns the string in uppercase."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/flow.html",
+              "tip": "Practice writing Java functions to solidify your understanding.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-17",
+          "dayLabel": "Fri, Apr 17",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-17-bnrxf",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-04-17",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Methods",
+                  "description": "In Java, a method is a block of code that performs a specific task. Methods are also known as functions or procedures. A method can take parameters, which are values passed to the method when it's called. Methods can also return values. The syntax for declaring a method in Java is: access_modifier return_type method_name(parameter_list) { // method body }",
+                  "code": "public class MyClass {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n    public static int add(int a, int b) {\n        return a + b;\n    }\n}",
+                  "exercise": "Write a Java method that takes two integers as parameters and returns their product."
+                },
+                {
+                  "topic": "Java Method Overloading",
+                  "description": "Method overloading is a feature in Java that allows multiple methods with the same name to be defined, but with different parameter lists. This is useful when you want to perform similar actions on different types of data. The compiler determines which method to call based on the number and types of parameters passed. A common mistake is to think that method overloading is the same as method overriding. Method overriding is when a subclass provides a different implementation of a method that is already defined in its superclass.",
+                  "code": "public class Calculator {\n    public int add(int a, int b) {\n        return a + b;\n    }\n    public double add(double a, double b) {\n        return a + b;\n    }\n}",
+                  "exercise": "Write a Java class with two methods that have the same name but different parameter lists."
+                }
+              ],
+              "resources": "",
+              "tip": "",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-18",
+          "dayLabel": "Sat, Apr 18",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-18-ylo9i",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-04-18",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. Java provides a built-in mechanism for exception handling using try, catch, and throw keywords. The try block contains the code that might throw an exception, the catch block contains the code that handles the exception, and the throw keyword is used to explicitly throw an exception. A common mistake is not handling specific exceptions properly, leading to generic exception handling. For example, not catching a FileNotFoundException when working with files can lead to program crashes.",
+                  "code": "try {\n    File file = new File(\"non_existent_file.txt\");\n    Scanner scanner = new Scanner(file);\n} catch (FileNotFoundException e) {\n    System.out.println(\"File not found!\");\n}",
+                  "exercise": "Write a Java program that attempts to divide two numbers and handles the ArithmeticException that is thrown when the divisor is zero."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice writing try-catch blocks for common exceptions in Java.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-19",
+          "dayLabel": "Sun, Apr 19",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-19-x0lgl",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-04-19",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. Java provides a robust mechanism for exception handling using try, catch, and throw keywords. The try block contains the code that might throw an exception, the catch block contains the code that handles the exception, and the throw keyword is used to explicitly throw an exception. A common mistake is not handling specific exceptions properly, leading to generic exception handling. For example, not catching a FileNotFoundException when working with files can lead to program crashes.",
+                  "code": "try {\n    File file = new File(\"example.txt\");\n    Scanner scanner = new Scanner(file);\n} catch (FileNotFoundException e) {\n    System.out.println(\"File not found.\");\n}",
+                  "exercise": "Write a Java program that reads a file and handles FileNotFoundException."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/",
+              "tip": "Practice writing try-catch blocks for common exceptions.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-20",
+          "dayLabel": "Mon, Apr 20",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-20-j6fdp",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-04-20",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "In Java, an exception is an event that occurs during the execution of a program that disrupts the normal flow of instructions. Exception handling is a mechanism to handle runtime errors so that the normal flow of the application can be maintained. Java provides a robust mechanism for exception handling using try, catch, and throw keywords. A common mistake is not handling specific exceptions properly, leading to generic error messages. For example, not catching a FileNotFoundException when working with files can lead to program crashes.",
+                  "code": "try {\n    File file = new File(\"non_existent_file.txt\");\n    Scanner scanner = new Scanner(file);\n} catch (FileNotFoundException e) {\n    System.out.println(\"File not found!\");\n}",
+                  "exercise": "Write a Java program to handle a NullPointerException when trying to access a method of an object that has not been initialized."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice writing try-catch blocks for common exceptions in Java.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-21",
+          "dayLabel": "Tue, Apr 21",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-21-edekb",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-04-21",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Exception Handling",
+                  "description": "Exception handling in Java is a mechanism to handle runtime errors so that the normal flow of the application can be maintained. Java provides a robust and object-oriented way to handle exceptions. The core of exception handling is the 'try-catch' block. The 'try' block contains the code that might throw an exception, while the 'catch' block contains the code that handles the exception. A common mistake is to leave out the 'catch' block or not to handle the exception properly, which can lead to the program crashing. It's also important to chain exceptions or rethrow them to maintain the exception's stack trace.",
+                  "code": "try {\n    int a = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Exception caught: \" + e.getMessage());\n}",
+                  "exercise": "Write a Java program that attempts to divide by zero and catches the ArithmeticException. The program should print out the exception's message."
+                }
+              ],
+              "resources": "Java Documentation on Exception Handling",
+              "tip": "Always handle specific exceptions before general ones.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-22",
+          "dayLabel": "Wed, Apr 22",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-22-xklv0",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-04-22",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors or exceptions. It is used to handle abnormal conditions that occur during the execution of a program. Java provides a built-in mechanism for exception handling using try, catch, and throw keywords. A common mistake is not handling specific exceptions properly, leading to generic exception handling. For example, not catching a FileNotFoundException when working with files can lead to program crashes.",
+                  "code": "try {\n    File file = new File(\"non_existent_file.txt\");\n    FileInputStream fis = new FileInputStream(file);\n} catch (FileNotFoundException e) {\n    System.out.println(\"File not found: \" + e.getMessage());\n}",
+                  "exercise": "Write a Java program to handle a NullPointerException when trying to access a method of an object that has not been initialized."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice writing try-catch blocks for common exceptions in Java.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-23",
+          "dayLabel": "Thu, Apr 23",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-23-bbbvv",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-04-23",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "In Java, an exception is an event that occurs during the execution of a program that disrupts the normal flow of instructions. Exception handling is a mechanism to handle runtime errors so that the normal flow of the application can be maintained. The try-catch block is used to handle exceptions. The try block contains the code that might throw an exception, while the catch block contains the code that handles the exception. A common mistake is to leave the try block empty, which can lead to unhandled exceptions. It's also important to handle specific exceptions rather than catching the general Exception class.",
+                  "code": "try {\n    int x = 5 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Exception caught: \" + e.getMessage());\n}",
+                  "exercise": "Write a Java program that divides two numbers and handles the ArithmeticException that is thrown when the divisor is zero."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice handling different types of exceptions in Java to improve your skills.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-24",
+          "dayLabel": "Fri, Apr 24",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-24-r7v1j",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-04-24",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows developers to handle runtime errors so that the normal flow of the application can be maintained. Java provides a built-in mechanism for exception handling using try, catch, and finally blocks. The try block contains the code that might throw an exception, the catch block handles the exception, and the finally block contains the code that is executed regardless of whether an exception was thrown or not. A common mistake is to leave the catch block empty, which can make debugging difficult. It's essential to log or handle the exception properly.",
+                  "code": "try {\n    int x = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Exception caught: \" + e.getMessage());\n} finally {\n    System.out.println(\"Finally block executed\");\n}",
+                  "exercise": "Write a Java program that demonstrates the use of try, catch, and finally blocks by dividing two numbers and handling the ArithmeticException."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice writing try-catch blocks for common exceptions in Java.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-01",
+          "dayLabel": "Fri, May 1",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-01-41vq6",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-01",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors or exceptions. It is used to handle the exceptions that occur during the execution of a program. Java provides a robust mechanism for exception handling using try, catch, and throw keywords. The try block contains the code that might throw an exception, while the catch block contains the code that handles the exception. A common mistake is not handling specific exceptions properly, leading to generic exception handling.",
+                  "code": "try {\n    int x = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Exception caught: \" + e.getMessage());\n}",
+                  "exercise": "Write a Java program to handle a NullPointerException when trying to access a null object's method."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice writing try-catch blocks for common exceptions in Java.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-02",
+          "dayLabel": "Sat, May 2",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-02-4cul3",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-02",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors or exceptions. It is used to handle exceptional circumstances that a program might encounter. Java provides a built-in mechanism for handling exceptions using try, catch, and throw keywords. A try block is used to enclose the code that might throw an exception. A catch block is used to handle the exception thrown by the try block. A common mistake is not handling specific exceptions, instead catching the general Exception class.",
+                  "code": "try {\n    int x = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Exception caught: \" + e.getMessage());\n}",
+                  "exercise": "Write a Java program to handle a NullPointerException when trying to access a method of a null object."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html",
+              "tip": "Practice writing try-catch blocks for different types of exceptions.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-03",
+          "dayLabel": "Sun, May 3",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-03-d992j",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-03",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows developers to handle runtime errors so that the normal flow of the application can be maintained. Java provides a built-in mechanism for exception handling using try, catch, and throw keywords. The try block contains the code that might throw an exception, the catch block contains the code that handles the exception, and the throw keyword is used to explicitly throw an exception. A common mistake is not handling specific exceptions properly, leading to generic exception handling. For example, not catching a FileNotFoundException when working with files can lead to program crashes.",
+                  "code": "try {\n    File file = new File(\"example.txt\");\n    Scanner scanner = new Scanner(file);\n} catch (FileNotFoundException e) {\n    System.out.println(\"File not found!\");\n}",
+                  "exercise": "Write a Java program that reads a file and handles the FileNotFoundException."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html",
+              "tip": "Practice writing try-catch blocks for common exceptions in Java.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-04",
+          "dayLabel": "Mon, May 4",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-04-vf1vq",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-04",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors or exceptions so that the normal flow of the application can be maintained. Java exception handling is managed via five keywords: try, catch, throw, throws, and finally. The try block contains the code that might throw an exception. The catch block is used to handle the exception thrown by the try block. The throw keyword is used to throw an exception explicitly. The throws keyword is used to declare the exceptions that a method might throw. The finally block is optional and is used to execute a block of code regardless of whether an exception was thrown or not. A common mistake is to forget to handle the exception or to misuse the finally block, which can lead to resource leaks.",
+                  "code": "try {\n    int x = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Exception caught: \" + e.getMessage());\n} finally {\n    System.out.println(\"Finally block executed\");\n}",
+                  "exercise": "Write a Java program that demonstrates the use of try-catch blocks to handle a NullPointerException when trying to access an element of a null array."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice writing try-catch blocks with different types of exceptions to improve your understanding of Java exception handling.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-05",
+          "dayLabel": "Tue, May 5",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-05-osn5p",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-05",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors or exceptions. It is used to handle exceptions that occur during the execution of a program. The try-catch block is used to catch and handle exceptions. The try block contains the code that might throw an exception, while the catch block contains the code that handles the exception. A common mistake is to leave the try block empty, which can lead to unhandled exceptions. For example, when reading from a file, a FileNotFoundException might be thrown.",
+                  "code": "try {\n    File file = new File(\"example.txt\");\n    Scanner scanner = new Scanner(file);\n} catch (FileNotFoundException e) {\n    System.out.println(\"File not found!\");\n}",
+                  "exercise": "Write a Java program that reads from a file and handles the FileNotFoundException."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice writing try-catch blocks for different types of exceptions.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-06",
+          "dayLabel": "Wed, May 6",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-06-6gv0s",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-06",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. Java provides a robust and object-oriented way to handle exceptions. The try-catch block is used to catch and handle exceptions. The try block contains the code that might throw an exception, while the catch block contains the code that handles the exception. A common mistake is not providing a specific enough exception type in the catch block, which can lead to masking of bugs.",
+                  "code": "try {\n    int divide = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Cannot divide by zero!\");\n}",
+                  "exercise": "Write a Java program that attempts to read a file that does not exist and handles the exception by printing an error message."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html",
+              "tip": "Practice writing try-catch blocks with different types of exceptions to improve your understanding.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-07",
+          "dayLabel": "Thu, May 7",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-07-4s4b7",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-07",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows developers to handle runtime errors so that the normal flow of the application can be maintained. Java provides a robust and object-oriented way to handle exceptions. The core of exception handling is the 'try-catch' block. The 'try' block contains code that might throw an exception, while the 'catch' block contains code that will be executed if an exception is thrown. A common mistake is to leave out the 'finally' block, which is used to execute code regardless of whether an exception was thrown or not.",
+                  "code": "try {\n    // code that might throw an exception\n} catch (Exception e) {\n    // handle the exception\n} finally {\n    // code that will always be executed\n}",
+                  "exercise": "Write a Java program that divides two numbers and handles the ArithmeticException that is thrown when the divisor is zero."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice writing try-catch blocks with different types of exceptions.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-08",
+          "dayLabel": "Fri, May 8",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-08-p9fvf",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-08",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. Java provides a robust and flexible way to handle exceptions. The try block contains the code that might throw an exception. The catch block contains the code that will be executed if an exception is thrown. The finally block contains the code that will always be executed regardless of whether an exception was thrown. A common mistake is to leave out the catch or finally block, which can lead to the program crashing or unexpected behavior.",
+                  "code": "try {\n    int x = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Exception caught: \" + e.getMessage());\n} finally {\n    System.out.println(\"Finally block executed\");\n}",
+                  "exercise": "Write a Java program that attempts to read a file that does not exist and handles the exception using a try-catch block."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html",
+              "tip": "Practice writing try-catch blocks with different types of exceptions.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-09",
+          "dayLabel": "Sat, May 9",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-09-varg5",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-09",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. Java exception handling is performed using five keywords: try, catch, throw, throws, and finally. The try block contains the code that might throw an exception. The catch block is used to handle the exception thrown by the try block. A try block can have multiple catch blocks. The throw keyword is used to throw an exception explicitly. The throws keyword is used to declare exceptions that a method might throw. A finally block is optional and is used to perform cleanup actions. A common mistake is to forget to handle or declare checked exceptions, which can lead to compilation errors.",
+                  "code": "try {\n    int x = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Exception caught: \" + e.getMessage());\n} finally {\n    System.out.println(\"Finally block executed\");\n}",
+                  "exercise": "Write a Java program that attempts to divide by zero and handles the ArithmeticException using a try-catch block."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice writing try-catch blocks with multiple catch blocks and a finally block to ensure robust exception handling.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-10",
+          "dayLabel": "Sun, May 10",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-10-y2fu2",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-10",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows developers to handle runtime errors so that the normal flow of the application can be maintained. Java provides a robust mechanism for exception handling using try, catch, and finally blocks. The try block contains the code that might throw an exception, the catch block handles the exception, and the finally block contains the code that is executed regardless of whether an exception was thrown or not. A common mistake is not handling specific exceptions properly, leading to generic exception handling. For example, not catching a FileNotFoundException when working with files can lead to program crashes.",
+                  "code": "try {\n    File file = new File(\"example.txt\");\n    Scanner scanner = new Scanner(file);\n} catch (FileNotFoundException e) {\n    System.out.println(\"File not found.\");\n} finally {\n    System.out.println(\"Finally block executed.\");\n}",
+                  "exercise": "Write a Java program that reads a file and handles the FileNotFoundException."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/",
+              "tip": "Practice writing try-catch blocks for common exceptions in Java.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-11",
+          "dayLabel": "Mon, May 11",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-11-ngu3w",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-11",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. An exception is an event that occurs during the execution of a program that disrupts the normal flow of instructions. Java provides a robust mechanism for exception handling through try, catch, and throw keywords. A try block is used to enclose the code that might throw an exception, a catch block is used to handle the exception, and a throw block is used to explicitly throw an exception. A common mistake is not handling specific exceptions properly, leading to generic exception handling which can mask bugs.",
+                  "code": "try {\n    int a = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Exception caught: \" + e.getMessage());\n}",
+                  "exercise": "Write a Java program to handle a NullPointerException when trying to access a method of a null object."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice writing try-catch blocks for different types of exceptions.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-12",
+          "dayLabel": "Tue, May 12",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-12-yjc3a",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-12",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. Java provides a robust and flexible way to handle exceptions. The try-catch block is used to catch and handle exceptions. The try block contains the code that might throw an exception, while the catch block contains the code that handles the exception. A common mistake is not handling specific exceptions properly, leading to generic exception handling. For example, not specifying the type of exception in the catch block can lead to hiding bugs.",
+                  "code": "try {\n    int x = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Cannot divide by zero!\");\n}",
+                  "exercise": "Write a Java program to handle the exception when trying to access an array index that does not exist."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice writing try-catch blocks for different types of exceptions.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-13",
+          "dayLabel": "Wed, May 13",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-13-p8azj",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-13",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. Java provides a robust and object-oriented way to handle exceptions. The try-catch block is used to catch and handle exceptions. The try block contains the code that might throw an exception, while the catch block contains the code that handles the exception. A common mistake is not handling specific exceptions properly, leading to generic exception handling.",
+                  "code": "try {\n    int divide = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Cannot divide by zero!\");\n}",
+                  "exercise": "Write a Java program that attempts to read a file that does not exist and handles the exception properly."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice writing try-catch blocks for common exceptions in Java.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-14",
+          "dayLabel": "Thu, May 14",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-14-l09km",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-14",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. Java provides a robust and object-oriented way to handle exceptions. The try-catch block is used to catch exceptions. The try block contains the code that might throw an exception, while the catch block contains the code that will be executed if an exception is thrown. A common mistake is not handling specific exceptions properly, which can lead to hiding bugs. For example, if a FileNotFoundException is not caught or declared, the program will not compile.",
+                  "code": "try {\n    File file = new File(\"non_existent_file.txt\");\n    Scanner scanner = new Scanner(file);\n} catch (FileNotFoundException e) {\n    System.out.println(\"File not found!\");\n}",
+                  "exercise": "Write a Java program that reads a file and handles the FileNotFoundException."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/exceptions/",
+              "tip": "Practice writing try-catch blocks for different types of exceptions.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-15",
+          "dayLabel": "Fri, May 15",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-15-1cngu",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-15",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. Java provides a robust and object-oriented way to handle exceptions. The try-catch block is used to catch and handle exceptions. The try block contains the code that might throw an exception, while the catch block contains the code that handles the exception. A common mistake is not providing a specific exception type in the catch block, which can lead to hiding bugs.",
+                  "code": "try {\n    int x = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Exception caught: \" + e.getMessage());\n}",
+                  "exercise": "Write a Java program that divides two numbers and handles the ArithmeticException that is thrown when the divisor is zero."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/exceptions/",
+              "tip": "Practice writing try-catch blocks with different types of exceptions.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-16",
+          "dayLabel": "Sat, May 16",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-16-h12tu",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-16",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors or exceptions. It is used to handle the exceptions that occur during the execution of a program. Java provides a built-in mechanism for exception handling using try, catch, and throw keywords. A try block is used to enclose the code that may throw an exception. A catch block is used to handle the exception thrown by the try block. A common mistake is not handling the exception properly, which can lead to the program crashing. For example, if a program attempts to divide by zero, it will throw an ArithmeticException.",
+                  "code": "try {\n    int x = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Exception caught: \" + e.getMessage());\n}",
+                  "exercise": "Write a Java program to handle a NullPointerException when trying to access a method of a null object."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice writing try-catch blocks for different types of exceptions.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-17",
+          "dayLabel": "Sun, May 17",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-17-obk7s",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-17",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "In Java, exception handling is a mechanism that allows developers to handle runtime errors. An exception is an event that occurs during the execution of a program that disrupts the normal flow of instructions. Java provides a try-catch block to handle exceptions. The try block contains the code that might throw an exception, while the catch block contains the code that handles the exception. A common mistake is to leave the catch block empty, which can make it difficult to diagnose and fix issues.",
+                  "code": "try {\n    int x = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Exception caught: \" + e.getMessage());\n}",
+                  "exercise": "Write a Java program that divides two numbers and handles the ArithmeticException that is thrown when the divisor is zero."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Use multiple catch blocks to handle different types of exceptions.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-18",
+          "dayLabel": "Mon, May 18",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-18-kda0d",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-18",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. Java provides a built-in mechanism for exception handling using try, catch, and throw keywords. The try block contains the code that might throw an exception, while the catch block contains the code that handles the exception. The throw keyword is used to explicitly throw an exception. A common mistake is to forget to handle exceptions properly, which can lead to program termination.",
+                  "code": "try {\n    int x = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Exception caught: \" + e.getMessage());\n}",
+                  "exercise": "Write a Java program to handle a NullPointerException when trying to access a null object's method."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html",
+              "tip": "Practice writing try-catch blocks for common exceptions in Java.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-19",
+          "dayLabel": "Tue, May 19",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-19-n748h",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-19",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. Java provides a built-in mechanism for exception handling using try, catch, and finally blocks. The try block contains the code that might throw an exception, the catch block contains the code that handles the exception, and the finally block contains the code that is executed regardless of whether an exception was thrown or not. A common mistake is to forget to handle specific exceptions, leading to unhandled exception errors. For example, when working with files, it's essential to handle IOException. Another mistake is to misuse the finally block, which should be used for releasing resources.",
+                  "code": "try {\n    File file = new File(\"example.txt\");\n    Scanner scanner = new Scanner(file);\n} catch (FileNotFoundException e) {\n    System.out.println(\"File not found.\");\n} finally {\n    System.out.println(\"Finally block executed.\");\n}",
+                  "exercise": "Write a Java program that reads a file and handles FileNotFoundException and IOException."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice writing try-catch blocks for common exceptions in Java.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-20",
+          "dayLabel": "Wed, May 20",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-20-fo7kt",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-20",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. Java provides a built-in mechanism for exception handling using try, catch, and throw keywords. The try block contains the code that might throw an exception, the catch block contains the code that handles the exception, and the throw keyword is used to explicitly throw an exception. A common mistake is not handling specific exceptions properly, leading to generic exception handling. For example, not catching a FileNotFoundException when working with files can lead to program crashes.",
+                  "code": "try {\n    File file = new File(\"non_existent_file.txt\");\n    FileReader reader = new FileReader(file);\n} catch (FileNotFoundException e) {\n    System.out.println(\"File not found: \" + e.getMessage());\n}",
+                  "exercise": "Write a Java program that attempts to read from a file that does not exist and handles the FileNotFoundException properly."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice writing try-catch blocks for different types of exceptions to get a better understanding of exception handling in Java.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-05-21",
+          "dayLabel": "Thu, May 21",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-05-21-ymc0t",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-05-21",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Generics",
+                  "description": "Java Generics is a feature that allows for the creation of reusable code. It allows types (classes and interfaces) to be parameters when defining classes, interfaces, and methods. The syntax for generics is to use angle brackets <> to enclose the type parameter. For example, a generic class can be defined as public class Box<T> { private T t; public void set(T t) { this.t = t; } public T get() { return t; } }. A common mistake is to forget to specify the type parameter when creating an instance of a generic class. For instance, creating a Box instance without specifying the type parameter, like Box box = new Box();, will result in a warning because the compiler cannot infer the type of the object being stored.",
+                  "code": "public class Box<T> {\n    private T t;\n    public void set(T t) {\n        this.t = t;\n    }\n    public T get() {\n        return t;\n    }\n    public static void main(String[] args) {\n        Box<String> stringBox = new Box<>();\n        stringBox.set(\"Hello\");\n        System.out.println(stringBox.get());\n    }\n}",
+                  "exercise": "Implement a generic method that swaps the elements of two boxes."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/java/generics/index.html",
+              "tip": "Practice using generics with different types to understand its benefits and limitations.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-06-05",
+          "dayLabel": "Fri, Jun 5",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-06-05-c0nul",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-06-05",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. Java provides a built-in mechanism for exception handling using try, catch, and throw keywords. The try block contains the code that might throw an exception, the catch block contains the code that handles the exception, and the throw keyword is used to explicitly throw an exception. A common mistake is not handling specific exceptions properly, leading to generic exception handling. For example, not catching a FileNotFoundException when working with files can lead to program crashes.",
+                  "code": "try {\n    File file = new File(\"example.txt\");\n    Scanner scanner = new Scanner(file);\n} catch (FileNotFoundException e) {\n    System.out.println(\"File not found!\");\n}",
+                  "exercise": "Write a Java program that reads a file and handles FileNotFoundException."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice writing try-catch blocks for common exceptions in Java.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-06-06",
+          "dayLabel": "Sat, Jun 6",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-06-06-g6szr",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-06-06",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Generics",
+                  "description": "Java Generics is a feature that allows for the creation of reusable code. It allows types (classes and interfaces) to be parameters when defining classes, interfaces, and methods. Generics are defined using angle brackets <>. They are useful for creating classes, interfaces, and methods that can work with any data type. A common use of generics is in the creation of collections. For example, a list of strings can be created using the List<String> interface. A common mistake when using generics is to try to add an object of the wrong type to a collection.",
+                  "code": "public class GenericExample {\n    public static void main(String[] args) {\n        List<String> list = new ArrayList<>();\n        list.add(\"Hello\");\n        // list.add(123); // This will cause a compile-time error\n    }\n}",
+                  "exercise": "Create a generic class called Box that can hold a value of any type. The class should have a method called getValue() that returns the value and a method called setValue() that sets the value."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/java/generics/index.html",
+              "tip": "Practice using generics with different data types to get a feel for how they work.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-06-07",
+          "dayLabel": "Sun, Jun 7",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-06-07-56e0d",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-06-07",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. Java provides a built-in mechanism for exception handling using try, catch, and finally blocks. The try block contains the code that might throw an exception, the catch block handles the exception, and the finally block contains the code that is always executed regardless of whether an exception was thrown or not. A common mistake is to forget to handle the exception properly, which can lead to the program crashing. For example, if a program attempts to divide by zero, it will throw an ArithmeticException.",
+                  "code": "try {\n    int x = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Cannot divide by zero\");\n} finally {\n    System.out.println(\"Finally block executed\");\n}",
+                  "exercise": "Write a Java program that attempts to read a file that does not exist and handles the FileNotFoundException properly."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html",
+              "tip": "Practice writing try-catch blocks for common exceptions in Java.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-06-08",
+          "dayLabel": "Mon, Jun 8",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-06-08-wpw2k",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-06-08",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Generics",
+                  "description": "Java Generics is a feature that allows for the creation of reusable code. It allows types (classes and interfaces) to be parameters when defining classes, interfaces, and methods. Generics are defined using angle brackets <>. A common example is the use of generics with the ArrayList class. A major benefit of generics is that they enable strong type safety. Without generics, you would have to use casts when retrieving objects from a collection, which can lead to runtime errors. A common mistake is to think that generics are only for collections, but they can be used to create generic methods and classes.",
+                  "code": "public class Box<T> {\n    private T t;\n    public void set(T t) { this.t = t; }\n    public T get() { return t; }\n}\nBox<String> stringBox = new Box<>();\nstringBox.set(\"Hello\");\nSystem.out.println(stringBox.get());",
+                  "exercise": "Create a generic class called Pair that holds two values of the same type. Implement a method to swap the values."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/java/generics/index.html",
+              "tip": "Practice using generics with real-world examples to solidify your understanding.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-06-09",
+          "dayLabel": "Tue, Jun 9",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-06-09-ff78u",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-06-09",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Generics",
+                  "description": "Java Generics allow for the creation of reusable code. Generics enable types (classes and interfaces) to be parameters when defining classes, interfaces, and methods. The syntax for generics is to use angle brackets <> to enclose the type parameter. A common example is the ArrayList class, which can be parameterized with a type. A common mistake is to think that generics are only for collections, but they can be used for any class or method. For example, a simple generic class can be defined as: public class GenericClass<T> { private T value; public GenericClass(T value) { this.value = value; } public T getValue() { return value; } }",
+                  "code": "public class GenericClass<T> { private T value; public GenericClass(T value) { this.value = value; } public T getValue() { return value; } }",
+                  "exercise": "Create a generic class called Box that can hold a value of any type. Implement get and set methods for the value."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/extra/generics/index.html",
+              "tip": "Practice using generics with everyday classes and methods to reinforce understanding.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-06-10",
+          "dayLabel": "Wed, Jun 10",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-06-10-l8wju",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-06-10",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. Java exception handling is based on five keywords: try, catch, finally, throw, and throws. The try block contains the code that might throw an exception. The catch block is used to handle the exception thrown by the try block. The finally block is used to execute code regardless of whether an exception was thrown or not. A common mistake is not handling specific exceptions properly, leading to generic exception handling which can mask bugs.",
+                  "code": "try {\n    int a = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Exception caught: \" + e.getMessage());\n} finally {\n    System.out.println(\"Finally block executed\");\n}",
+                  "exercise": "Write a Java program that attempts to divide by zero and handles the exception using a try-catch block."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/concurrency/exceptions.html",
+              "tip": "Practice handling different types of exceptions in Java to improve your understanding.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-06-11",
+          "dayLabel": "Thu, Jun 11",
+          "tasks": [
+            {
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-06-11-63ywf",
+              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
+              "subjectTitle": "Java language",
+              "date": "2026-06-11",
+              "taskType": "practice",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Java Exception Handling",
+                  "description": "Exception handling in Java is a mechanism that allows a program to handle runtime errors so that the normal flow of the application can be maintained. Java provides a robust and object-oriented way to handle exceptions. The try-catch block is used to catch and handle exceptions. The try block contains the code that might throw an exception, while the catch block contains the code that handles the exception. A common mistake is not providing a specific enough exception type in the catch block, which can lead to masking of bugs.",
+                  "code": "try {\n    int x = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Cannot divide by zero!\");\n}",
+                  "exercise": "Write a Java program that attempts to read a file that does not exist and handles the exception by printing an error message."
+                }
+              ],
+              "resources": "https://docs.oracle.com/javase/tutorial/essential/exceptions/",
+              "tip": "Practice writing try-catch blocks with different types of exceptions.",
+              "completed": false
+            }
+          ]
+        }
+      ],
+      "progress": {}
+    },
+    "demo": {
+      "subjects": [
+        {
+          "title": "ai plan",
+          "description": "",
+          "startDate": "2026-04-10",
+          "deadline": "2026-05-09",
+          "priority": "medium",
+          "hoursPerDay": "2",
+          "id": "20879cec-d829-4680-bc00-f81f616caacd"
+        }
+      ],
+      "studyPlan": [
+        {
+          "date": "2026-04-10",
+          "dayLabel": "Fri, Apr 10",
+          "tasks": [
+            {
+              "id": "20879cec-d829-4680-bc00-f81f616caacd-2026-04-10-dr6tu",
+              "subjectId": "20879cec-d829-4680-bc00-f81f616caacd",
+              "subjectTitle": "ai plan",
+              "date": "2026-04-10",
+              "taskType": "plan",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Introduction to AI Planning",
+                  "description": "Artificial Intelligence (AI) planning is a subfield of AI that deals with planning and decision-making. It involves creating a plan of actions to achieve a specific goal. AI planning is used in various applications such as robotics, autonomous vehicles, and smart homes. The goal of AI planning is to find a sequence of actions that can be executed to achieve a desired state. AI planning involves representing the current state of the world, defining the goals, and finding a plan to achieve those goals. A good AI planning system should be able to handle complex and dynamic environments.",
+                  "code": "",
+                  "exercise": "Define a simple planning problem: Suppose we have a robot that can move around in a 2D grid. The robot's goal is to move from the starting point (0,0) to the target point (3,3). The robot can move up, down, left, or right. Create a simple plan for the robot to achieve its goal."
+                },
+                {
+                  "topic": "Types of AI Planning",
+                  "description": "There are several types of AI planning, including forward planning, backward planning, and plan-space planning. Forward planning involves creating a plan by adding actions to the current state until the goal is reached. Backward planning involves creating a plan by subtracting actions from the goal state until the current state is reached. Plan-space planning involves searching for a plan in a space of possible plans. Each type of planning has its advantages and disadvantages. The choice of planning type depends on the specific problem and the available resources.",
+                  "code": "",
+                  "exercise": "Classify the following planning problems into forward planning, backward planning, or plan-space planning: (1) A robot that needs to move from (0,0) to (3,3) in a 2D grid. (2) A logistics company that needs to deliver packages to different locations. (3) A smart home system that needs to control the temperature and lighting."
+                }
+              ],
+              "resources": "",
+              "tip": "Start with the basics and build a strong foundation in AI planning.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-11",
+          "dayLabel": "Sat, Apr 11",
+          "tasks": [
+            {
+              "id": "20879cec-d829-4680-bc00-f81f616caacd-2026-04-11-1w8yf",
+              "subjectId": "20879cec-d829-4680-bc00-f81f616caacd",
+              "subjectTitle": "ai plan",
+              "date": "2026-04-11",
+              "taskType": "plan",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Planning as Satisfiability",
+                  "description": "Planning as satisfiability is a popular approach to AI planning. It involves encoding the planning problem as a satisfiability problem. The planning problem is represented as a set of variables, constraints, and a goal. The satisfiability problem is then solved using a SAT solver. The solution to the satisfiability problem corresponds to a plan. Planning as satisfiability is a powerful approach that can handle complex planning problems.",
+                  "code": "",
+                  "exercise": "Encode the following planning problem as a satisfiability problem: A robot that needs to move from (0,0) to (3,3) in a 2D grid. The robot can move up, down, left, or right."
+                },
+                {
+                  "topic": "Planning Graph",
+                  "description": "A planning graph is a data structure used to represent the planning problem. It consists of a set of nodes and edges that represent the current state, actions, and goals. The planning graph is used to search for a plan. The planning graph can be used to handle complex planning problems with multiple actions and goals.",
+                  "code": "",
+                  "exercise": "Draw a planning graph for the following planning problem: A robot that needs to move from (0,0) to (3,3) in a 2D grid. The robot can move up, down, left, or right."
+                }
+              ],
+              "resources": "",
+              "tip": "Practice, practice, practice! The more you practice, the better you'll become at AI planning.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-14",
+          "dayLabel": "Tue, Apr 14",
+          "tasks": [
+            {
+              "id": "20879cec-d829-4680-bc00-f81f616caacd-2026-04-14-1vy7y",
+              "subjectId": "20879cec-d829-4680-bc00-f81f616caacd",
+              "subjectTitle": "ai plan",
+              "date": "2026-04-14",
+              "taskType": "study",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Supervised Learning",
+                  "description": "Supervised learning is a type of machine learning where the model is trained on labeled data. This means that the data is already tagged with the correct output, and the model learns to predict the output from the input data. Supervised learning is important because it allows us to make predictions on new, unseen data. The exact syntax or formula for supervised learning is not straightforward, but it typically involves training a model on a dataset with input-output pairs. For example, if we want to predict house prices based on features like number of bedrooms and square footage, we would train a model on a dataset with these features and corresponding prices. A common algorithm used in supervised learning is linear regression, which can be represented by the equation y = mx + b, where y is the output, x is the input, m is the slope, and b is the intercept.",
+                  "code": "",
+                  "exercise": "A real estate company wants to predict house prices based on the number of bedrooms and square footage. They have collected the following data: (2 bedrooms, 1000 sqft, $200000), (3 bedrooms, 1500 sqft, $300000), (4 bedrooms, 2000 sqft, $400000). Use linear regression to predict the price of a house with 3 bedrooms and 1200 sqft."
+                },
+                {
+                  "topic": "Unsupervised Learning",
+                  "description": "Unsupervised learning is a type of machine learning where the model is trained on unlabeled data. This means that the data is not tagged with the correct output, and the model learns to identify patterns or structure in the data. Unsupervised learning is important because it allows us to discover new insights or relationships in the data. The exact syntax or formula for unsupervised learning is not straightforward, but it typically involves clustering or dimensionality reduction techniques. For example, if we have a dataset with customer information, we might use clustering to group similar customers together. A common algorithm used in unsupervised learning is k-means clustering, which involves randomly initializing centroids and iteratively updating them to minimize the sum of squared distances between points and their assigned centroids.",
+                  "code": "",
+                  "exercise": "A company wants to segment its customers based on their buying behavior. They have collected the following data: (customer 1, $100, 2 purchases), (customer 2, $200, 3 purchases), (customer 3, $50, 1 purchase). Use k-means clustering to group these customers into 2 clusters."
+                }
+              ],
+              "resources": "",
+              "tip": "Make sure to explore different machine learning algorithms and their applications.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-15",
+          "dayLabel": "Wed, Apr 15",
+          "tasks": [
+            {
+              "id": "20879cec-d829-4680-bc00-f81f616caacd-2026-04-15-pzy2z",
+              "subjectId": "20879cec-d829-4680-bc00-f81f616caacd",
+              "subjectTitle": "ai plan",
+              "date": "2026-04-15",
+              "taskType": "study",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Reinforcement Learning",
+                  "description": "Reinforcement learning is a type of machine learning where the model learns to take actions in an environment to maximize a reward. This involves trial and error, and the model learns from its mistakes. Reinforcement learning is important because it allows us to train models to make decisions in complex, uncertain environments. The exact syntax or formula for reinforcement learning is not straightforward, but it typically involves a Markov decision process (MDP) framework. For example, if we want to train a robot to navigate a maze, we would define a reward function that encourages the robot to move towards the goal. A common algorithm used in reinforcement learning is Q-learning, which involves updating a Q-function that estimates the expected return for each state-action pair.",
+                  "code": "",
+                  "exercise": "A robot is placed in a 3x3 maze and wants to reach the goal in the top-right corner. The robot can move up, down, left, or right, and receives a reward of -1 for each step and 10 for reaching the goal. Use Q-learning to train the robot to navigate the maze."
+                },
+                {
+                  "topic": "Deep Learning",
+                  "description": "Deep learning is a type of machine learning that involves the use of neural networks to analyze data. This involves multiple layers of interconnected nodes (neurons) that process and transform the input data. Deep learning is important because it allows us to analyze complex data such as images, speech, and text. The exact syntax or formula for deep learning is not straightforward, but it typically involves a series of matrix multiplications and activations. For example, if we want to train a neural network to classify images, we would define a convolutional neural network (CNN) architecture with multiple layers of convolutional and pooling layers. A common algorithm used in deep learning is stochastic gradient descent (SGD), which involves iteratively updating the model parameters to minimize the loss function.",
+                  "code": "",
+                  "exercise": "A company wants to classify images of animals into different categories (e.g. dog, cat, bird). They have collected a dataset of 1000 images and want to use a CNN to classify them. Define a CNN architecture with 2 convolutional layers and 1 fully connected layer, and train the model using SGD."
+                }
+              ],
+              "resources": "",
+              "tip": "Make sure to practice implementing different machine learning algorithms using a library like TensorFlow or PyTorch.",
+              "completed": false
+            }
+          ]
+        },
+        {
+          "date": "2026-04-16",
+          "dayLabel": "Thu, Apr 16",
+          "tasks": [
+            {
+              "id": "20879cec-d829-4680-bc00-f81f616caacd-2026-04-16-zs5hu",
+              "subjectId": "20879cec-d829-4680-bc00-f81f616caacd",
+              "subjectTitle": "ai plan",
+              "date": "2026-04-16",
+              "taskType": "study",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Decision Trees",
+                  "description": "A decision tree is a type of supervised learning algorithm used for classification and regression tasks. It's called a decision tree because it resembles a tree, with a root node and branches that represent different decisions. The algorithm works by recursively partitioning the data into smaller subsets based on the features of the input data. The goal is to create a tree that accurately predicts the target variable. Decision trees are important because they're easy to interpret and can handle both categorical and numerical data. The basic syntax of a decision tree involves calculating the information gain or Gini impurity at each node. A common formula for information gain is: IG = H(parent) - H(children), where H is the entropy. For example, if we have a dataset with 10 samples and 2 features, the decision tree might look like this: Root Node → Feature 1 → Node 1 → Feature 2 → Node 2. A common mistake to avoid is overfitting, which occurs when the tree is too complex and performs poorly on new data.",
+                  "code": "import numpy as np\nfrom sklearn.tree import DecisionTreeClassifier\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.datasets import load_iris\n\n# Load iris dataset\niris = load_iris()\nX = iris.data\nY = iris.target\n\n# Split data into training and testing sets\nX_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)\n\n# Create decision tree classifier\nclf = DecisionTreeClassifier(random_state=42)\n\n# Train the model\nclf.fit(X_train, Y_train)\n\n# Make predictions\nY_pred = clf.predict(X_test)\n\n# Evaluate the model\naccuracy = clf.score(X_test, Y_test)\nprint(f\"Accuracy: {accuracy:.2f}\")\n\n# Feature importances\nfeature_importances = clf.feature_importances_\nprint(\"Feature Importances:\", feature_importances)",
+                  "exercise": "Create a decision tree classifier to predict the Iris flower type based on 2 features: sepal length and sepal width. Use the Iris dataset and evaluate the model's accuracy."
+                }
+              ],
+              "resources": "https://scikit-learn.org/stable/modules/tree.html",
+              "tip": "Use GridSearchCV to tune hyperparameters",
+              "completed": false
+            }
+          ]
+        }
+      ],
+      "progress": {}
+    }
+  },
+  "currentUser": "demoschool"
+}
