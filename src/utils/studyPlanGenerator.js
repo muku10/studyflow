@@ -212,36 +212,45 @@ export async function generateWeekPlan(subjects, weekInfo, prevTopics = []) {
     `${i + 1}. ID:"${s.id}" | "${s.title}" | ${s.description || 'none'} | Start:${s.startDate || today} | Due:${s.deadline} | ${s.priority} | ${s.hoursPerDay || 2}h/day`
   ).join('\n');
 
-  const systemPrompt = `You write detailed study content as JSON. Student learns ONLY from your output. If subject mentions university/semester/board, follow that syllabus. Every "description": 5+ sentences with definition, syntax, example, common mistake. Every "code": complete runnable code or formula. Every "exercise": specific problem. NO empty fields.`;
+  const systemPrompt = `You are a course professor creating a structured curriculum as JSON. Student learns ENTIRELY from your output.
 
-  // Generate 1 day at a time — prevents truncation
+RULES:
+- If subject mentions university/semester/board, use EXACT syllabus
+- Each day must teach NEW topics — NEVER repeat a topic already listed in "covered so far"
+- Follow a logical curriculum order: basics → intermediate → advanced → revision
+- "description": 5+ sentences with definition, syntax/formula, worked example, common pitfalls
+- "code": complete runnable code with comments (10+ lines for CS), or formulas with worked solution
+- "exercise": specific solvable problem with concrete values
+- NO empty fields, NO generic content, NO repetition`;
+
+  // Generate 1 day at a time
   const allDays = [];
   const weekStart = new Date(weekInfo.startDate);
-  let runningTopics = [...prevTopics];
+  // Track ACTUAL topic names (not just taskType) to prevent repetition
+  let coveredTopics = [...prevTopics];
 
   for (let dayIdx = 0; dayIdx < weekInfo.days; dayIdx++) {
     const dayDate = addDays(weekStart, dayIdx);
     const dateStr = fmt(dayDate);
+    const dayNum = (weekInfo.week - 1) * 7 + dayIdx + 1;
 
-    const prevCtx = runningTopics.length > 0
-      ? `Covered so far: ${runningTopics.slice(-8).join(', ')}. Continue — don't repeat.`
-      : 'Day 1 — start from basics.';
+    const coveredStr = coveredTopics.length > 0
+      ? `ALREADY COVERED (do NOT repeat any of these): ${coveredTopics.slice(-20).join(' | ')}`
+      : '';
 
-    const userMsg = `Generate study plan for ONE day: ${dateStr}.
+    const userMsg = `Day ${dayNum} of the course (${dateStr}). ${coveredStr}
 
-${prevCtx}
+Subjects: ${activeList}
 
-Subjects:
-${activeList}
+Generate the NEXT topics in the curriculum. Each task must cover NEW material not listed above.
 
-Return ONLY a JSON object for this single day (NOT an array):
-{"date":"${dateStr}","tasks":[{"subjectId":"<id>","subjectTitle":"<title>","taskType":"<label>","duration":<min>,"priority":"high|medium|low","content":[{"topic":"<name>","description":"<5+ sentence teaching>","code":"<code>","exercise":"<problem>"}],"resources":"<ref>","tip":"<tip>"}]}`;
+Return ONLY JSON (single object, not array):
+{"date":"${dateStr}","tasks":[{"subjectId":"<id>","subjectTitle":"<title>","taskType":"<Day ${dayNum}: specific topic name>","duration":<min>,"priority":"high|medium|low","content":[{"topic":"<unique topic>","description":"<5+ sentence detailed teaching>","code":"<complete code/formula>","exercise":"<specific problem>"}],"resources":"<ref>","tip":"<tip>"}]}`;
 
     try {
       console.log(`Generating day ${dayIdx + 1}/${weekInfo.days}: ${dateStr}`);
       const raw = await callAI(client, systemPrompt, userMsg);
 
-      // Parse — could be a single object or wrapped in array
       let parsed;
       try {
         const cleaned = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '');
@@ -250,14 +259,19 @@ Return ONLY a JSON object for this single day (NOT an array):
         parsed = parseJSON(raw);
       }
 
-      // Normalize: could be {date,tasks} or [{date,tasks}]
       const dayObj = Array.isArray(parsed) ? parsed[0] : parsed;
 
       if (dayObj && dayObj.tasks && dayObj.tasks.length > 0) {
         const normalized = normalizeTasks([dayObj]);
         allDays.push(...normalized);
+        // Track ALL generated topic names for continuity
         for (const task of dayObj.tasks) {
-          runningTopics.push(task.taskType || '');
+          coveredTopics.push(task.taskType || '');
+          if (task.content) {
+            for (const c of task.content) {
+              if (c.topic) coveredTopics.push(c.topic);
+            }
+          }
         }
       }
     } catch (err) {
@@ -267,7 +281,6 @@ Return ONLY a JSON object for this single day (NOT an array):
       }
     }
 
-    // Small delay between days to avoid rate limits
     if (dayIdx < weekInfo.days - 1) {
       await new Promise((r) => setTimeout(r, 800));
     }

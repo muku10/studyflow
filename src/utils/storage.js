@@ -1,86 +1,43 @@
-const API = 'http://localhost:3001/api';
-
-// ── In-memory cache (synced with JSON files via API) ──
-
-let _data = null;
-let _accounts = null;
-let _loaded = false;
+const STORAGE_KEY = 'studyflow_data';
+const AUTH_KEY = 'studyflow_accounts';
 
 function getData() {
-  if (!_data) _data = { users: {}, currentUser: null };
-  return _data;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : { users: {}, currentUser: null };
+  } catch { return { users: {}, currentUser: null }; }
 }
 
 function saveData(data) {
-  _data = data;
-  // Async write to file — fire and forget
-  fetch(`${API}/data`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
-  }).catch(() => {});
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
 function getAccounts() {
-  if (!_accounts) _accounts = {};
-  return _accounts;
+  try {
+    const raw = localStorage.getItem(AUTH_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch { return {}; }
 }
 
 function saveAccounts(accounts) {
-  _accounts = accounts;
-  fetch(`${API}/accounts`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(accounts),
-  }).catch(() => {});
+  localStorage.setItem(AUTH_KEY, JSON.stringify(accounts));
 }
 
-/**
- * Load data from JSON files on startup.
- * Call this once before the app renders.
- */
-export async function initStorage() {
-  if (_loaded) return;
-  try {
-    const [dataRes, accRes] = await Promise.all([
-      fetch(`${API}/data`),
-      fetch(`${API}/accounts`),
-    ]);
-    if (dataRes.ok) _data = await dataRes.json();
-    if (accRes.ok) _accounts = await accRes.json();
-    _loaded = true;
-  } catch {
-    // Server not running — fall back to empty data
-    console.warn('API server not running. Start it with: npm run server');
-    _data = { users: {}, currentUser: null };
-    _accounts = {};
-    _loaded = true;
-  }
-}
-
-// ── Account / Auth system ──
+// ── Auth ──
 
 export function registerUser(username, password) {
   const accounts = getAccounts();
   const key = username.toLowerCase();
+  if (accounts[key]) return { success: false, error: 'Username already exists' };
 
-  if (accounts[key]) {
-    return { success: false, error: 'Username already exists' };
-  }
-
-  accounts[key] = {
-    displayName: username,
-    password,
-    createdAt: new Date().toISOString(),
-  };
+  accounts[key] = { displayName: username, password, createdAt: new Date().toISOString() };
   saveAccounts(accounts);
 
   const data = getData();
   if (!data.users[key]) {
-    data.users[key] = { subjects: [], studyPlan: [], progress: {} };
+    data.users[key] = { subjects: [], studyPlan: [], progress: {}, recycleBin: [] };
     saveData(data);
   }
-
   return { success: true, displayName: username };
 }
 
@@ -88,44 +45,28 @@ export function loginUser(username, password) {
   const accounts = getAccounts();
   const key = username.toLowerCase();
   const account = accounts[key];
-
-  if (!account) {
-    return { success: false, error: 'Account not found. Please register first.' };
-  }
-
-  if (account.password !== password) {
-    return { success: false, error: 'Incorrect password' };
-  }
+  if (!account) return { success: false, error: 'Account not found. Please register first.' };
+  if (account.password !== password) return { success: false, error: 'Incorrect password' };
 
   const data = getData();
-  if (!data.users[key]) {
-    data.users[key] = { subjects: [], studyPlan: [], progress: {} };
-  }
+  if (!data.users[key]) data.users[key] = { subjects: [], studyPlan: [], progress: {}, recycleBin: [] };
   data.currentUser = key;
   saveData(data);
-
   return { success: true, displayName: account.displayName };
 }
 
 export function resetPassword(username, newPassword) {
   const accounts = getAccounts();
   const key = username.toLowerCase();
-  const account = accounts[key];
-
-  if (!account) {
-    return { success: false, error: 'Account not found' };
-  }
-
+  if (!accounts[key]) return { success: false, error: 'Account not found' };
   accounts[key].password = newPassword;
   saveAccounts(accounts);
-
   return { success: true };
 }
 
 export function getCurrentUser() {
   const data = getData();
   if (!data.currentUser) return null;
-
   const accounts = getAccounts();
   const account = accounts[data.currentUser];
   return account ? account.displayName : data.currentUser;
@@ -145,11 +86,10 @@ export function logout() {
 
 export function getUserData(username) {
   const data = getData();
-  const key = username.toLowerCase();
-  return data.users[key] || { subjects: [], studyPlan: [], progress: {} };
+  return data.users[username?.toLowerCase()] || { subjects: [], studyPlan: [], progress: {}, recycleBin: [] };
 }
 
-export function saveUserData(username, userData) {
+function saveUserData(username, userData) {
   const data = getData();
   data.users[username.toLowerCase()] = userData;
   saveData(data);
@@ -160,9 +100,9 @@ export function getSubjects(username) {
 }
 
 export function saveSubjects(username, subjects) {
-  const userData = getUserData(username);
-  userData.subjects = subjects;
-  saveUserData(username, userData);
+  const ud = getUserData(username);
+  ud.subjects = subjects;
+  saveUserData(username, ud);
 }
 
 export function getStudyPlan(username) {
@@ -170,9 +110,9 @@ export function getStudyPlan(username) {
 }
 
 export function saveStudyPlan(username, plan) {
-  const userData = getUserData(username);
-  userData.studyPlan = plan;
-  saveUserData(username, userData);
+  const ud = getUserData(username);
+  ud.studyPlan = plan;
+  saveUserData(username, ud);
 }
 
 export function getProgress(username) {
@@ -180,9 +120,9 @@ export function getProgress(username) {
 }
 
 export function saveProgress(username, progress) {
-  const userData = getUserData(username);
-  userData.progress = progress;
-  saveUserData(username, userData);
+  const ud = getUserData(username);
+  ud.progress = progress;
+  saveUserData(username, ud);
 }
 
 // ── Recycle bin ──
@@ -192,60 +132,39 @@ export function getRecycleBin(username) {
 }
 
 export function recycleSubject(username, subjectId) {
-  const userData = getUserData(username);
-  const subject = (userData.subjects || []).find((s) => s.id === subjectId);
+  const ud = getUserData(username);
+  const subject = (ud.subjects || []).find((s) => s.id === subjectId);
   if (!subject) return;
-
-  if (!userData.recycleBin) userData.recycleBin = [];
-  userData.recycleBin.push({ ...subject, deletedAt: new Date().toISOString() });
-  userData.subjects = userData.subjects.filter((s) => s.id !== subjectId);
-
-  saveUserData(username, userData);
+  if (!ud.recycleBin) ud.recycleBin = [];
+  ud.recycleBin.push({ ...subject, deletedAt: new Date().toISOString() });
+  ud.subjects = ud.subjects.filter((s) => s.id !== subjectId);
+  saveUserData(username, ud);
 }
 
 export function restoreSubject(username, subjectId) {
-  const userData = getUserData(username);
-  const item = (userData.recycleBin || []).find((s) => s.id === subjectId);
+  const ud = getUserData(username);
+  const item = (ud.recycleBin || []).find((s) => s.id === subjectId);
   if (!item) return;
-
   const { deletedAt, ...subject } = item;
-  userData.subjects = [...(userData.subjects || []), subject];
-  userData.recycleBin = userData.recycleBin.filter((s) => s.id !== subjectId);
-
-  saveUserData(username, userData);
+  ud.subjects = [...(ud.subjects || []), subject];
+  ud.recycleBin = ud.recycleBin.filter((s) => s.id !== subjectId);
+  saveUserData(username, ud);
 }
 
 export function permanentlyDeleteSubject(username, subjectId) {
-  const userData = getUserData(username);
-
-  userData.recycleBin = (userData.recycleBin || []).filter((s) => s.id !== subjectId);
-
-  if (userData.studyPlan) {
-    userData.studyPlan = userData.studyPlan
-      .map((day) => ({ ...day, tasks: day.tasks.filter((t) => t.subjectId !== subjectId) }))
-      .filter((day) => day.tasks.length > 0);
+  const ud = getUserData(username);
+  ud.recycleBin = (ud.recycleBin || []).filter((s) => s.id !== subjectId);
+  if (ud.studyPlan) {
+    ud.studyPlan = ud.studyPlan
+      .map((d) => ({ ...d, tasks: d.tasks.filter((t) => t.subjectId !== subjectId) }))
+      .filter((d) => d.tasks.length > 0);
   }
-
-  if (userData.progress) {
-    const newProgress = {};
-    for (const [key, val] of Object.entries(userData.progress)) {
-      if (!key.startsWith(subjectId)) newProgress[key] = val;
+  if (ud.progress) {
+    const clean = {};
+    for (const [k, v] of Object.entries(ud.progress)) {
+      if (!k.startsWith(subjectId)) clean[k] = v;
     }
-    userData.progress = newProgress;
+    ud.progress = clean;
   }
-
-  saveUserData(username, userData);
-}
-
-export function deleteSubjectWithPlan(username, subjectId) {
-  const userData = getUserData(username);
-  userData.subjects = (userData.subjects || []).filter((s) => s.id !== subjectId);
-
-  if (userData.studyPlan) {
-    userData.studyPlan = userData.studyPlan
-      .map((day) => ({ ...day, tasks: day.tasks.filter((t) => t.subjectId !== subjectId) }))
-      .filter((day) => day.tasks.length > 0);
-  }
-
-  saveUserData(username, userData);
+  saveUserData(username, ud);
 }

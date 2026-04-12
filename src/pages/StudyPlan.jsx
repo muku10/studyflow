@@ -332,17 +332,25 @@ export default function StudyPlan() {
     setError('');
 
     try {
-      // Collect previously covered topics from earlier weeks
+      // Collect ALL previously covered topic names (not just taskType)
       const prevTopics = plan
         .filter((d) => d.date < weekInfo.startDate)
-        .flatMap((d) => d.tasks.map((t) => t.taskType));
+        .flatMap((d) => d.tasks.flatMap((t) => {
+          const topics = [t.taskType];
+          if (t.content) t.content.forEach((c) => { if (c.topic) topics.push(c.topic); });
+          return topics;
+        }));
 
-      // On regenerate, also pass THIS week's existing topics so AI generates different content
+      // On regenerate, mark this week's topics so AI generates DIFFERENT content
       if (isRegenerate) {
         const existingThisWeek = plan
           .filter((d) => d.date >= weekInfo.startDate && d.date <= weekInfo.endDate)
-          .flatMap((d) => d.tasks.flatMap((t) => t.content?.map((c) => c.topic) || []));
-        prevTopics.push(...existingThisWeek.map((t) => `[ALREADY COVERED - SKIP] ${t}`));
+          .flatMap((d) => d.tasks.flatMap((t) => {
+            const topics = [t.taskType];
+            if (t.content) t.content.forEach((c) => { if (c.topic) topics.push(c.topic); });
+            return topics;
+          }));
+        prevTopics.push(...existingThisWeek);
       }
 
       const newDays = await generateWeekPlan(subjects, weekInfo, prevTopics);

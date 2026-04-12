@@ -3,13 +3,13 @@
     "demoschool": {
       "subjects": [
         {
-          "title": "Java language",
-          "description": "",
+          "title": "Engineering professional practice ",
+          "description": "8th semester , Tribhuvan university , IOE",
           "startDate": "2026-04-10",
-          "deadline": "2026-08-08",
+          "deadline": "2026-04-11",
           "priority": "medium",
-          "hoursPerDay": "2",
-          "id": "8e712a83-d823-4046-a105-b90bcfda71d2"
+          "hoursPerDay": "6",
+          "id": "e28609d6-c0ef-4644-832d-fb3ccbf84a34"
         }
       ],
       "studyPlan": [
@@ -18,23 +18,29 @@
           "dayLabel": "Fri, Apr 10",
           "tasks": [
             {
-              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-10-4rg9q",
-              "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
-              "subjectTitle": "Java language",
+              "id": "e28609d6-c0ef-4644-832d-fb3ccbf84a34-2026-04-10-zw68m",
+              "subjectId": "e28609d6-c0ef-4644-832d-fb3ccbf84a34",
+              "subjectTitle": "Engineering Professional Practice",
               "date": "2026-04-10",
-              "taskType": "Study",
-              "duration": 120,
+              "taskType": "study",
+              "duration": 360,
               "priority": "medium",
               "content": [
                 {
-                  "topic": "Java Methods",
-                  "description": "In Java, a method is a block of code that performs a specific task. It is a fundamental concept in object-oriented programming (OOP). A method is called by its name, and it can take parameters and return values. The syntax for declaring a method is: `return-type method-name(parameter-list) { // method body }`. For example, a simple method to add two numbers is: `public int add(int a, int b) { return a + b; }`. A common mistake is to forget the return type or the method name. It's also important to note that method overloading is allowed in Java, which means multiple methods with the same name can be defined, but with different parameter lists.",
-                  "code": "public class Calculator {\n  public int add(int a, int b) {\n    return a + b;\n  }\n  public double add(double a, double b) {\n    return a + b;\n  }\n}",
-                  "exercise": "Write a Java method to calculate the area of a rectangle."
+                  "topic": "Introduction to Engineering Professional Practice",
+                  "description": "Engineering professional practice refers to the application of engineering principles and techniques in a professional setting. It involves the use of scientific and mathematical principles to design, build, and maintain structures, machines, and systems. Engineering professional practice requires a strong understanding of technical skills, as well as communication, teamwork, and problem-solving skills. A professional engineer must be able to analyze problems, identify solutions, and implement them in a safe and efficient manner. The goal of engineering professional practice is to create products and systems that are safe, reliable, and sustainable. Common mistakes in engineering professional practice include inadequate risk assessment, poor communication with stakeholders, and failure to follow established protocols.",
+                  "code": "",
+                  "exercise": "What are the key skills required for a professional engineer to succeed in engineering professional practice?"
+                },
+                {
+                  "topic": "Professionalism in Engineering",
+                  "description": "Professionalism in engineering refers to the adherence to a set of principles and standards that guide the behavior of engineers in their professional practice. This includes a commitment to honesty, integrity, and transparency, as well as a responsibility to protect the public health, safety, and welfare. Engineers must also be aware of their own limitations and seek help when needed. A professional engineer must be able to communicate effectively with stakeholders, including clients, colleagues, and the public. Effective communication involves active listening, clear and concise language, and a willingness to adapt to different communication styles. Common mistakes in engineering professionalism include a lack of transparency, inadequate communication, and failure to prioritize public safety.",
+                  "code": "",
+                  "exercise": "What are the key principles of professionalism in engineering?"
                 }
               ],
-              "resources": "https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html",
-              "tip": "Practice writing methods with different return types and parameter lists.",
+              "resources": "Tribhuvan University, IOE - Engineering Professional Practice course materials",
+              "tip": "Take regular breaks to refresh your mind and stay focused.",
               "completed": false
             }
           ]
@@ -44,29 +50,43 @@
           "dayLabel": "Sat, Apr 11",
           "tasks": [
             {
-              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-11-w53en",
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-11-0hzl3",
               "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
               "subjectTitle": "Java language",
               "date": "2026-04-11",
-              "taskType": "Study",
+              "taskType": "study",
               "duration": 120,
               "priority": "medium",
               "content": [
                 {
-                  "topic": "Java Functions",
-                  "description": "In Java, a function is a block of code that performs a specific task. It is also known as a method. A function can take parameters and return values. The syntax for declaring a function is: `return-type function-name (parameter-list) { // function body }`. For example, a simple function that adds two numbers is: `public int add(int a, int b) { return a + b; }`. A common mistake is to forget the return statement or to mismatch the return type with the actual returned value.",
-                  "code": "public class Main { public static void main(String[] args) { System.out.println(add(5, 7)); } public static int add(int a, int b) { return a + b; } }",
-                  "exercise": "Write a Java function that takes a string as input and returns the string in uppercase."
-                },
-                {
-                  "topic": "Java Object-Oriented Programming (OOP) Concepts",
-                  "description": "Java is an object-oriented programming language that supports encapsulation, inheritance, and polymorphism. A class is a blueprint for creating objects, and an object is an instance of a class. The syntax for declaring a class is: `public class ClassName { // class body }`. For example, a simple class that represents a car is: `public class Car { private String color; public Car(String color) { this.color = color; } public void honk() { System.out.println(\"Honk!\"); } }`. A common mistake is to confuse the concepts of class and object.",
-                  "code": "public class Main { public static void main(String[] args) { Car myCar = new Car(\"red\"); myCar.honk(); } } class Car { private String color; public Car(String color) { this.color = color; } public void honk() { System.out.println(\"Honk!\"); } }",
-                  "exercise": "Create a Java class that represents a bank account and has methods to deposit and withdraw money."
+                  "topic": "Java Control Structures",
+                  "description": "Control structures in Java determine the flow of a program's execution. They include if-else statements, switch statements, loops (for, while, do-while), and jump statements (break, continue, return). The if-else statement is used to execute a block of code if a certain condition is true. The switch statement is used to execute a block of code based on the value of a variable. Loops are used to execute a block of code repeatedly. A common mistake is to use a semicolon at the end of a loop statement, which can lead to an infinite loop.",
+                  "code": "public class ControlStructures {\n    public static void main(String[] args) {\n        int x = 10;\n        if (x > 5) {\n            System.out.println(\"x is greater than 5\");\n        } else {\n            System.out.println(\"x is less than or equal to 5\");\n        }\n    }\n}",
+                  "exercise": "Write a Java program to print the numbers from 1 to 10 using a for loop."
                 }
               ],
-              "resources": "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/index.html",
-              "tip": "Practice writing Java code every day to improve your skills.",
+              "resources": "",
+              "tip": "Practice writing Java programs to reinforce understanding of control structures.",
+              "completed": false
+            },
+            {
+              "id": "11e11049-a267-4634-ab07-bd1094f80bb5-2026-04-11-lbv3i",
+              "subjectId": "11e11049-a267-4634-ab07-bd1094f80bb5",
+              "subjectTitle": "python basics",
+              "date": "2026-04-11",
+              "taskType": "study",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Python Functions",
+                  "description": "Functions in Python are blocks of code that can be called multiple times from different parts of a program. They are defined using the def keyword and can take arguments. A function can return a value using the return statement. Functions are useful for organizing code and reducing repetition. A common mistake is to forget the parentheses when calling a function.",
+                  "code": "def greet(name):\n    print(\"Hello, \" + name + \"!\")\ngreet(\"John\")",
+                  "exercise": "Write a Python function to calculate the area of a rectangle."
+                }
+              ],
+              "resources": "",
+              "tip": "Try writing Python functions to solve different problems.",
               "completed": false
             }
           ]
@@ -76,23 +96,43 @@
           "dayLabel": "Sun, Apr 12",
           "tasks": [
             {
-              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-12-337pw",
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-12-8zcys",
               "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
               "subjectTitle": "Java language",
               "date": "2026-04-12",
-              "taskType": "Study",
+              "taskType": "study",
               "duration": 120,
               "priority": "medium",
               "content": [
                 {
-                  "topic": "Java Methods",
-                  "description": "In Java, a method is a block of code that performs a specific task. Methods are also known as functions. A method can take parameters and return values. The syntax for declaring a method is: access_modifier return_type method_name(parameter_list). For example, a simple method to add two numbers can be declared as: public int add(int a, int b). A common mistake is to forget the return statement or to mismatch the return type with the actual returned value.",
-                  "code": "public class Calculator {\n  public int add(int a, int b) {\n    return a + b;\n  }\n  public static void main(String[] args) {\n    Calculator calc = new Calculator();\n    System.out.println(calc.add(5, 7));\n  }\n}",
-                  "exercise": "Write a Java method to find the maximum of two numbers."
+                  "topic": "Java Control Structures",
+                  "description": "Control structures in Java determine the flow of a program's execution. They include if-else statements, switch statements, loops (for, while, do-while), and jump statements (break, continue, return). These structures allow programmers to control the flow of their program based on certain conditions. The if-else statement is used to execute a block of code if a certain condition is true. If the condition is false, another block of code can be executed. A common mistake is to use a single equals sign (=) for comparison, which is incorrect. Instead, use a double equals sign (==) for comparison.",
+                  "code": "if (x > 10) {\n  System.out.println(\"x is greater than 10\");\n} else {\n  System.out.println(\"x is less than or equal to 10\");\n}",
+                  "exercise": "Write a Java program that prints out the numbers from 1 to 10, but skips 5."
                 }
               ],
-              "resources": "https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html",
-              "tip": "Practice writing methods with different return types and parameters.",
+              "resources": "",
+              "tip": "Practice writing Java programs with different control structures to get a feel for how they work.",
+              "completed": false
+            },
+            {
+              "id": "11e11049-a267-4634-ab07-bd1094f80bb5-2026-04-12-o89ef",
+              "subjectId": "11e11049-a267-4634-ab07-bd1094f80bb5",
+              "subjectTitle": "python basics",
+              "date": "2026-04-12",
+              "taskType": "study",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Python Functions",
+                  "description": "Functions in Python are blocks of code that can be called multiple times from different parts of a program. They are used to perform a specific task. A function can take arguments, which are values passed to the function when it is called. The function can then use these arguments to perform its task. A common mistake is to forget the parentheses when calling a function. For example, a function defined as 'def greet(name):' should be called as 'greet(\"John\")'.",
+                  "code": "def greet(name):\n  print(\"Hello, \" + name + \"!\")\ngreet(\"John\")",
+                  "exercise": "Write a Python function that takes two numbers as arguments and returns their sum."
+                }
+              ],
+              "resources": "",
+              "tip": "Try writing Python functions to perform different tasks, such as calculations or data processing.",
               "completed": false
             }
           ]
@@ -102,23 +142,43 @@
           "dayLabel": "Mon, Apr 13",
           "tasks": [
             {
-              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-13-d9kby",
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-13-18ld3",
               "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
               "subjectTitle": "Java language",
               "date": "2026-04-13",
-              "taskType": "Study",
+              "taskType": "study",
               "duration": 120,
               "priority": "medium",
               "content": [
                 {
-                  "topic": "Java Object-Oriented Programming (OOP) Concepts",
-                  "description": "Object-Oriented Programming (OOP) is a programming paradigm that revolves around the concept of objects and classes. In Java, OOP is used to create reusable code, model real-world entities, and organize complex systems. A class is a blueprint or a template that defines the properties and behavior of an object. An object is an instance of a class, and it has its own set of attributes (data) and methods (functions). Inheritance, polymorphism, encapsulation, and abstraction are the four fundamental principles of OOP.",
-                  "code": "public class Animal {\n    private String name;\n    public Animal(String name) {\n        this.name = name;\n    }\n    public void eat() {\n        System.out.println(name + \" is eating\");\n    }\n}\n\npublic class Dog extends Animal {\n    public Dog(String name) {\n        super(name);\n    }\n    public void bark() {\n        System.out.println(\"Dog is barking\");\n    }\n}",
-                  "exercise": "Create a Java class called 'Vehicle' with attributes 'color' and 'speed', and methods 'accelerate()' and 'brake()'. Then, create a subclass 'Car' that extends 'Vehicle' and adds an additional attribute 'numberOfDoors' and a method 'lockDoors()'."
+                  "topic": "Java Methods",
+                  "description": "In Java, a method is a block of code that performs a specific task. Methods are also known as functions. A method can take parameters and return values. The syntax for declaring a method is: access_modifier return_type method_name(parameter_list) { // method body } For example: public int add(int a, int b) { return a + b; } A common mistake is to forget the return statement or to mismatch the return type with the actual returned value.",
+                  "code": "public class MethodExample { public static void main(String[] args) { MethodExample example = new MethodExample(); int result = example.add(5, 7); System.out.println(result); } public int add(int a, int b) { return a + b; } }",
+                  "exercise": "Write a Java method that takes a string as input and returns the string in uppercase."
                 }
               ],
               "resources": "https://docs.oracle.com/javase/tutorial/java/concepts/index.html",
-              "tip": "Practice creating classes and objects in Java to solidify your understanding of OOP concepts.",
+              "tip": "Practice writing Java methods to solidify your understanding.",
+              "completed": false
+            },
+            {
+              "id": "11e11049-a267-4634-ab07-bd1094f80bb5-2026-04-13-rjwiu",
+              "subjectId": "11e11049-a267-4634-ab07-bd1094f80bb5",
+              "subjectTitle": "python basics",
+              "date": "2026-04-13",
+              "taskType": "study",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Python Functions",
+                  "description": "In Python, a function is a block of code that can be executed multiple times from different parts of your program. Functions can take arguments and return values. The syntax for declaring a function is: def function_name(parameter_list): # function body For example: def greet(name): print(f'Hello, {name}!') A common mistake is to forget the colon at the end of the function definition or to mismatch the number of arguments with the number of parameters.",
+                  "code": "def add(a, b): return a + b result = add(5, 7) print(result)",
+                  "exercise": "Write a Python function that takes a list of numbers as input and returns the sum of the numbers."
+                }
+              ],
+              "resources": "https://docs.python.org/3/tutorial/index.html",
+              "tip": "Practice writing Python functions to solidify your understanding.",
               "completed": false
             }
           ]
@@ -128,23 +188,43 @@
           "dayLabel": "Tue, Apr 14",
           "tasks": [
             {
-              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-14-dzvj3",
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-14-kcch4",
               "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
               "subjectTitle": "Java language",
               "date": "2026-04-14",
-              "taskType": "Study",
+              "taskType": "study",
               "duration": 120,
               "priority": "medium",
               "content": [
                 {
-                  "topic": "Java Methods",
-                  "description": "In Java, a method is a block of code that performs a specific task. It is a fundamental concept in object-oriented programming (OOP). A method is called on an object, and it can take parameters and return values. The syntax for declaring a method is: `access_modifier return_type method_name(parameter_list)`. For example, a simple method to add two numbers can be declared as: `public int add(int a, int b)`. A common mistake is to confuse method overloading with method overriding. Method overloading allows multiple methods with the same name but different parameters, while method overriding allows a subclass to provide a different implementation of a method already defined in its superclass.",
-                  "code": "public class Calculator {\n    public int add(int a, int b) {\n        return a + b;\n    }\n}",
-                  "exercise": "Write a Java method to calculate the area of a rectangle."
+                  "topic": "Java Variables and Data Types",
+                  "description": "In Java, a variable is a name given to a storage location that holds a value. Java has two main categories of data types: primitive and non-primitive. Primitive data types include byte, short, int, long, float, double, boolean, and char. Non-primitive data types are also known as reference types, which include classes, interfaces, and arrays. A common mistake is to confuse the primitive data type 'int' with 'Integer', where 'int' is a primitive type and 'Integer' is a class. For example, int is a primitive type, whereas Integer is a wrapper class.",
+                  "code": "int x = 10; double y = 20.5; boolean z = true;",
+                  "exercise": "Declare a variable of type char and assign it the value 'A'."
                 }
               ],
-              "resources": "https://docs.oracle.com/javase/tutorial/java/concepts/class.html",
-              "tip": "Practice writing and calling methods with different parameters and return types.",
+              "resources": "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html",
+              "tip": "Practice declaring variables with different data types.",
+              "completed": false
+            },
+            {
+              "id": "11e11049-a267-4634-ab07-bd1094f80bb5-2026-04-14-5ct26",
+              "subjectId": "11e11049-a267-4634-ab07-bd1094f80bb5",
+              "subjectTitle": "python basics",
+              "date": "2026-04-14",
+              "taskType": "study",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Python Control Structures - Conditional Statements",
+                  "description": "In Python, conditional statements are used to execute a block of code based on a condition. The if statement is used to execute a block of code if a condition is true. The elif statement is used to check another condition if the initial condition is false. The else statement is used to execute a block of code if all conditions are false. A common mistake is to use incorrect indentation, which can lead to syntax errors. For example, if-elif-else statements can be used to check the grade of a student.",
+                  "code": "x = 5; if x > 10: print('x is greater than 10'); elif x == 5: print('x is equal to 5'); else: print('x is less than 5')",
+                  "exercise": "Write a Python program to check if a number is positive, negative, or zero."
+                }
+              ],
+              "resources": "https://docs.python.org/3/tutorial/controlflow.html",
+              "tip": "Practice writing conditional statements with different conditions.",
               "completed": false
             }
           ]
@@ -154,23 +234,43 @@
           "dayLabel": "Wed, Apr 15",
           "tasks": [
             {
-              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-15-bw1lv",
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-15-pqcpv",
               "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
               "subjectTitle": "Java language",
               "date": "2026-04-15",
-              "taskType": "Study",
+              "taskType": "study",
               "duration": 120,
               "priority": "medium",
               "content": [
                 {
-                  "topic": "Java Methods",
-                  "description": "In Java, a method is a block of code that performs a specific task. It is a fundamental concept in object-oriented programming (OOP). A method can take parameters, return values, and can be reused multiple times in a program. Methods are used to organize code, reduce repetition, and improve modularity. A common mistake is to confuse methods with functions; methods are associated with objects or classes, whereas functions are standalone blocks of code. Syntax: `return-type method-name(parameter-list) { // method body }`. For example: `public int add(int a, int b) { return a + b; }`.",
-                  "code": "public class Calculator {\n  public int add(int a, int b) {\n    return a + b;\n  }\n  public static void main(String[] args) {\n    Calculator calc = new Calculator();\n    System.out.println(calc.add(5, 7));\n  }\n}",
-                  "exercise": "Write a Java method that takes a string as input and returns the string in uppercase."
+                  "topic": "Java Variables and Data Types",
+                  "description": "In Java, a variable is a name given to a memory location. Variables have a specific data type, which determines the type of value it can hold. Java has two main categories of data types: primitive and reference. Primitive data types include byte, short, int, long, float, double, char, and boolean. For example, int x = 10; declares a variable x of type int with value 10. A common mistake is trying to assign a value of one type to a variable of another type, like trying to assign a string to an integer variable.",
+                  "code": "public class VariablesExample {\n    public static void main(String[] args) {\n        int x = 10;\n        System.out.println(x);\n    }\n}",
+                  "exercise": "Declare a variable of type double and assign it the value 20.5. Then, print the variable."
                 }
               ],
-              "resources": "https://docs.oracle.com/javase/tutorial/java/concepts/class.html",
-              "tip": "Practice writing methods with different return types and parameter lists.",
+              "resources": "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html",
+              "tip": "Practice declaring and using different data types in Java.",
+              "completed": false
+            },
+            {
+              "id": "11e11049-a267-4634-ab07-bd1094f80bb5-2026-04-15-rxa4k",
+              "subjectId": "11e11049-a267-4634-ab07-bd1094f80bb5",
+              "subjectTitle": "python basics",
+              "date": "2026-04-15",
+              "taskType": "study",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Python Basic Syntax",
+                  "description": "Python's syntax is simple and emphasizes readability. It uses indentation to define code blocks. A basic Python program starts with the 'print()' function to output text. For example, print('Hello, World!') outputs the string 'Hello, World!'. A common mistake is forgetting to indent code blocks, which results in a SyntaxError. Variables in Python do not need a specific keyword to declare, and they can be reassigned.",
+                  "code": "print('Hello, World!')\nx = 5\ny = 10\nprint('The sum is:', x + y)",
+                  "exercise": "Write a Python program to print your name and age."
+                }
+              ],
+              "resources": "https://docs.python.org/3/tutorial/index.html",
+              "tip": "Focus on understanding indentation and basic data types in Python.",
               "completed": false
             }
           ]
@@ -180,23 +280,43 @@
           "dayLabel": "Thu, Apr 16",
           "tasks": [
             {
-              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-16-gyu39",
+              "id": "8e712a83-d823-4046-a105-b90bcfda71d2-2026-04-16-hbb5s",
               "subjectId": "8e712a83-d823-4046-a105-b90bcfda71d2",
               "subjectTitle": "Java language",
               "date": "2026-04-16",
-              "taskType": "Study",
+              "taskType": "study",
               "duration": 120,
               "priority": "medium",
               "content": [
                 {
-                  "topic": "Java Functions",
-                  "description": "In Java, a function is a block of code that performs a specific task. It is also known as a method. A function can take parameters and return values. The syntax for declaring a function is: `return-type function-name (parameter-list)`. For example, a simple function that adds two numbers is: `public static int add(int a, int b) { return a + b; }`. A common mistake is to forget the return statement or to mismatch the return type with the actual returned value.",
-                  "code": "public class Main { public static void main(String[] args) { System.out.println(add(5, 7)); } public static int add(int a, int b) { return a + b; } }",
-                  "exercise": "Write a Java function that takes a string as input and returns the string in uppercase."
+                  "topic": "Java Variables and Data Types",
+                  "description": "In Java, a variable is a name given to a memory location that stores a value. Java has two main categories of data types: primitive and non-primitive. Primitive data types are the basic data types provided by Java, such as int, double, char, boolean, etc. Non-primitive data types are derived from primitive data types, such as arrays, classes, and interfaces. For example, 'int x = 10;' declares an integer variable x and assigns it the value 10. A common mistake is to confuse the primitive data type 'int' with the non-primitive data type 'Integer'.",
+                  "code": "int x = 10; double y = 20.5; char z = 'A';",
+                  "exercise": "Declare a variable of type double and assign it the value 30.5."
                 }
               ],
-              "resources": "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/flow.html",
-              "tip": "Practice writing Java functions to solidify your understanding.",
+              "resources": "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html",
+              "tip": "Practice declaring variables with different data types.",
+              "completed": false
+            },
+            {
+              "id": "11e11049-a267-4634-ab07-bd1094f80bb5-2026-04-16-jov7w",
+              "subjectId": "11e11049-a267-4634-ab07-bd1094f80bb5",
+              "subjectTitle": "python basics",
+              "date": "2026-04-16",
+              "taskType": "study",
+              "duration": 120,
+              "priority": "medium",
+              "content": [
+                {
+                  "topic": "Python Variables and Data Types",
+                  "description": "In Python, a variable is a name given to a value. Python has several built-in data types, such as int, float, str, bool, list, tuple, etc. For example, 'x = 10' assigns the value 10 to the variable x. A common mistake is to use the '==' operator for assignment instead of the '=' operator. Python is dynamically-typed, which means you don't need to declare the data type of a variable before using it.",
+                  "code": "x = 10; y = 20.5; z = 'Hello World';",
+                  "exercise": "Write a Python code snippet that declares a variable 'name' and assigns it your name."
+                }
+              ],
+              "resources": "https://docs.python.org/3/tutorial/introduction.html",
+              "tip": "Practice declaring variables with different data types in Python.",
               "completed": false
             }
           ]
@@ -1144,7 +1264,29 @@
           ]
         }
       ],
-      "progress": {}
+      "progress": {},
+      "recycleBin": [
+        {
+          "title": "Java language",
+          "description": "",
+          "startDate": "2026-04-10",
+          "deadline": "2026-08-08",
+          "priority": "medium",
+          "hoursPerDay": "2",
+          "id": "8e712a83-d823-4046-a105-b90bcfda71d2",
+          "deletedAt": "2026-04-10T13:24:54.861Z"
+        },
+        {
+          "title": "python basics",
+          "description": "",
+          "startDate": "2026-04-10",
+          "deadline": "2026-05-09",
+          "priority": "medium",
+          "hoursPerDay": "2",
+          "id": "11e11049-a267-4634-ab07-bd1094f80bb5",
+          "deletedAt": "2026-04-10T13:24:57.664Z"
+        }
+      ]
     },
     "demo": {
       "subjects": [
