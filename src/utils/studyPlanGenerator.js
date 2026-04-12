@@ -118,20 +118,31 @@ async function generateSyllabus(client, subject, totalDays, prevTopics) {
     ? `\nAlready covered (skip these): ${prevTopics.join(', ')}`
     : '';
 
-  const msg = `Create a syllabus outline for "${subject.title}".
-Description: ${subject.description || 'none'}
+  const sysMsg = `You are a university curriculum expert. You know the EXACT syllabus of every major university course worldwide.
+
+CRITICAL: When the user mentions a specific university, program, semester, or board — you MUST generate topics from that EXACT official syllabus. Do NOT make up generic topics.
+
+Examples:
+- "BSc CSIT TU 6th semester Dot Net" → Use Tribhuvan University BSc CSIT 6th sem .NET syllabus: Unit 1 (Introduction to .NET Framework, CLR, CTS, CLS), Unit 2 (C# Fundamentals), Unit 3 (OOP in C#), Unit 4 (Windows Forms), Unit 5 (ADO.NET), Unit 6 (ASP.NET), etc.
+- "BSc CSIT TU 4th semester Data Structures" → Use TU syllabus: Stack, Queue, Linked List, Trees, BST, AVL, Heap, Graph, Hashing, Sorting
+- "CBSE Class 12 Physics" → Use NCERT chapters: Electric Charges, Electrostatic Potential, Current Electricity, etc.
+
+Return ONLY a JSON array. No explanation.`;
+
+  const msg = `Subject: "${subject.title}"
+Course details: "${subject.description || 'none'}"
 Total study days: ${totalDays}
-Study hours per day: ${subject.hoursPerDay || 2}
+Hours per day: ${subject.hoursPerDay || 2}
 ${coveredStr}
 
-If this is a university course (e.g. BSc CSIT Tribhuvan University), use the REAL official syllabus units and chapters.
+Based on the course details above, create a syllabus with EXACTLY ${totalDays} topics in the correct curriculum order.
 
-Return ONLY a JSON array of topic names in curriculum order — one per day. Do NOT include day numbers in the names. Example:
-["Introduction and Setup","Variables and Data Types","Operators and Expressions","Control Flow: if-else","Loops: for, while, do-while","Functions and Methods","Arrays and Collections"]
+If the description mentions a university/program/semester (like "BSc CSIT TU 6th semester"), you MUST follow that university's OFFICIAL syllabus for this subject. Break each syllabus unit into daily topics.
 
-Return exactly ${totalDays} topic names. Each must be unique, specific, and have NO "Day N:" prefix.`;
+Return ONLY a JSON array of ${totalDays} topic names. No day numbers. No generic topics. Follow the real syllabus.
+Example format: ["Introduction to .NET Framework","CLR Architecture and CTS","C# Basics: Variables and Data Types",...]`;
 
-  const raw = await callAI(client, 'You are a curriculum designer. Return only JSON.', msg);
+  const raw = await callAI(client, sysMsg, msg);
   const cleaned = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '');
   try {
     const parsed = JSON.parse(cleaned);
