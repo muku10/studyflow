@@ -126,10 +126,10 @@ ${coveredStr}
 
 If this is a university course (e.g. BSc CSIT Tribhuvan University), use the REAL official syllabus units and chapters.
 
-Return ONLY a JSON array of topic names in curriculum order — one topic per day. Example:
-["Introduction and Setup","Variables and Data Types","Operators and Expressions","Control Flow: if/else","Control Flow: Loops","Functions and Methods","Arrays","Day 8 topic",...]
+Return ONLY a JSON array of topic names in curriculum order — one per day. Do NOT include day numbers in the names. Example:
+["Introduction and Setup","Variables and Data Types","Operators and Expressions","Control Flow: if-else","Loops: for, while, do-while","Functions and Methods","Arrays and Collections"]
 
-Return exactly ${totalDays} topics. Each must be unique and specific. Progress from basics to advanced.`;
+Return exactly ${totalDays} topic names. Each must be unique, specific, and have NO "Day N:" prefix.`;
 
   const raw = await callAI(client, 'You are a curriculum designer. Return only JSON.', msg);
   const cleaned = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '');
@@ -226,7 +226,9 @@ export async function generateWeekPlan(subjects, weekInfo, prevTopics = []) {
     const dayDate = addDays(weekStart, dayIdx);
     const dateStr = fmt(dayDate);
     const globalDayNum = dayOffset + dayIdx + 1;
-    const topicName = syllabus[dayOffset + dayIdx] || `Review & Practice Day ${globalDayNum}`;
+    // Strip any "Day N:" prefix the AI may have added in the syllabus
+    const rawTopic = syllabus[dayOffset + dayIdx] || `Review & Practice`;
+    const topicName = rawTopic.replace(/^Day\s*\d+\s*[:.\-–—]\s*/i, '').trim();
 
     console.log(`Step 2: Day ${dayIdx + 1}/${weekInfo.days} — ${topicName}`);
 
