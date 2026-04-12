@@ -282,44 +282,65 @@ export default function StudyPlan() {
             </Card>
           )}
 
-          {/* Week cards */}
+          {/* Week selector — compact horizontal scroll */}
           {subjectWeeks.length > 0 && (
             <div className="mb-6">
-              <h3 className="text-sm font-semibold text-slate-700 mb-3">Weekly Plan for {currentSubject?.title}</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-sm font-semibold text-slate-700">{subjectWeeks.length} weeks · {currentSubject?.title}</h3>
+                {activeWeekInfo && generatedWeeks.has(activeWeek) && (
+                  <button onClick={() => handleGenerateWeek(activeWeek, true)} disabled={generating}
+                    className="text-xs font-medium text-indigo-600 hover:text-indigo-700 flex items-center gap-1">
+                    <Sparkles className="w-3 h-3" /> Regenerate {activeWeekInfo.label}
+                  </button>
+                )}
+              </div>
+
+              {/* Week pills */}
+              <div className="flex gap-1.5 overflow-x-auto pb-2 scrollbar-thin">
                 {subjectWeeks.map((w) => {
                   const isGenerated = generatedWeeks.has(w.week);
                   const isSelected = activeWeek === w.week;
                   const isGenerating = generating && generatingWeek === w.week;
                   return (
-                    <div key={w.week}
-                      className={`p-3.5 rounded-xl border text-left transition-all ${
-                        isSelected ? 'border-indigo-500 bg-indigo-50 ring-2 ring-indigo-200' : isGenerated ? 'border-emerald-300 bg-emerald-50/50' : 'border-slate-200 bg-white'
-                      } ${generating && !isGenerating ? 'opacity-50' : ''}`}>
-                      <button onClick={() => isGenerated ? setSelectedWeek(w.week) : handleGenerateWeek(w.week)} disabled={generating} className="w-full text-left">
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="text-sm font-bold text-slate-900">{w.label}</span>
-                          {isGenerating && <Loader2 className="w-4 h-4 text-indigo-500 animate-spin" />}
-                          {isGenerated && !isGenerating && <CheckCircle2 className="w-4 h-4 text-emerald-500" />}
-                          {!isGenerated && !isGenerating && <Sparkles className="w-4 h-4 text-slate-300" />}
-                        </div>
-                        <p className="text-xs text-slate-500">{w.range}</p>
-                        <p className="text-xs mt-1 font-medium">
-                          {isGenerating ? <span className="text-indigo-600">Generating...</span>
-                            : isGenerated ? <span className="text-emerald-600">Ready</span>
-                            : <span className="text-slate-400">Click to generate</span>}
-                        </p>
-                      </button>
-                      {isGenerated && !isGenerating && (
-                        <button onClick={() => handleGenerateWeek(w.week, true)} disabled={generating}
-                          className="mt-2 w-full flex items-center justify-center gap-1 px-2 py-1.5 text-xs font-medium text-indigo-600 bg-white border border-indigo-200 rounded-lg hover:bg-indigo-50 transition-all disabled:opacity-50">
-                          <Sparkles className="w-3 h-3" /> Regenerate
-                        </button>
-                      )}
-                    </div>
+                    <button key={w.week}
+                      onClick={() => isGenerated ? setSelectedWeek(w.week) : handleGenerateWeek(w.week)}
+                      disabled={generating && !isGenerating}
+                      className={`shrink-0 px-3 py-2 rounded-lg text-xs font-semibold border transition-all ${
+                        isSelected
+                          ? 'bg-indigo-600 text-white border-indigo-600 shadow-md shadow-indigo-200'
+                          : isGenerated
+                          ? 'bg-emerald-50 text-emerald-700 border-emerald-300 hover:bg-emerald-100'
+                          : 'bg-white text-slate-500 border-slate-200 hover:border-indigo-300 hover:text-indigo-600'
+                      } ${generating && !isGenerating ? 'opacity-40' : ''}`}
+                      title={w.range}
+                    >
+                      {isGenerating ? <Loader2 className="w-3 h-3 animate-spin" /> : `W${w.week}`}
+                    </button>
                   );
                 })}
               </div>
+
+              {/* Selected week detail bar */}
+              {activeWeekInfo && (
+                <div className="mt-3 flex items-center gap-3 px-4 py-2.5 bg-slate-50 rounded-xl text-sm">
+                  <Calendar className="w-4 h-4 text-slate-400" />
+                  <span className="font-semibold text-slate-700">{activeWeekInfo.label}</span>
+                  <span className="text-slate-400">·</span>
+                  <span className="text-slate-500">{activeWeekInfo.range}</span>
+                  <span className="text-slate-400">·</span>
+                  <span className="text-slate-500">{activeWeekInfo.days} days</span>
+                  {!generatedWeeks.has(activeWeek) && !generating && (
+                    <Button size="sm" onClick={() => handleGenerateWeek(activeWeek)} className="ml-auto">
+                      <Sparkles className="w-3 h-3" /> Generate
+                    </Button>
+                  )}
+                  {generating && generatingWeek === activeWeek && (
+                    <span className="ml-auto flex items-center gap-1.5 text-indigo-600 font-medium text-xs">
+                      <Loader2 className="w-3.5 h-3.5 animate-spin" /> Generating...
+                    </span>
+                  )}
+                </div>
+              )}
             </div>
           )}
 
