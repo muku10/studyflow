@@ -3,83 +3,35 @@ import Groq from 'groq-sdk';
 function repairAndParse(str) {
   let s = str;
   if (!s.trimStart().startsWith('[')) s = '[' + s;
-
-  // Strategy 1: walk backwards and try closing brackets
   for (let i = s.length - 1; i >= Math.max(0, s.length - 500); i--) {
     if (s[i] === '}') {
       let attempt = s.substring(0, i + 1);
-      // Close all open brackets
-      const opens = (attempt.match(/\[/g) || []).length;
-      const closes = (attempt.match(/\]/g) || []).length;
-      for (let j = 0; j < opens - closes; j++) attempt += ']';
-      // Close all open braces
-      const openB = (attempt.match(/\{/g) || []).length;
-      const closeB = (attempt.match(/\}/g) || []).length;
-      for (let j = 0; j < openB - closeB; j++) attempt += '}';
-      // Try adding missing brackets again after braces
-      const opens2 = (attempt.match(/\[/g) || []).length;
-      const closes2 = (attempt.match(/\]/g) || []).length;
-      for (let j = 0; j < opens2 - closes2; j++) attempt += ']';
-      try {
-        const parsed = JSON.parse(attempt);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-      } catch { continue; }
+      const ob = (attempt.match(/\[/g) || []).length;
+      const cb = (attempt.match(/\]/g) || []).length;
+      for (let j = 0; j < ob - cb; j++) attempt += ']';
+      const oc = (attempt.match(/\{/g) || []).length;
+      const cc = (attempt.match(/\}/g) || []).length;
+      for (let j = 0; j < oc - cc; j++) attempt += '}';
+      const ob2 = (attempt.match(/\[/g) || []).length;
+      const cb2 = (attempt.match(/\]/g) || []).length;
+      for (let j = 0; j < ob2 - cb2; j++) attempt += ']';
+      try { const p = JSON.parse(attempt); if (Array.isArray(p) && p.length > 0) return p; } catch { continue; }
     }
   }
-
-  // Strategy 2: find the last complete task object and cut there
-  const lastTaskEnd = s.lastIndexOf('"completed"');
-  if (lastTaskEnd > 0) {
-    // Find the next } after completed
-    const afterCompleted = s.indexOf('}', lastTaskEnd);
-    if (afterCompleted > 0) {
-      let attempt = s.substring(0, afterCompleted + 1) + ']}]';
-      try {
-        const parsed = JSON.parse(attempt);
-        if (Array.isArray(parsed)) return parsed;
-      } catch {}
-    }
-  }
-
-  // Strategy 3: find last complete "date" block
-  const lastDateBlock = s.lastIndexOf('"tasks"');
-  if (lastDateBlock > 0) {
-    // Go backwards from lastDateBlock to find the { that starts this day
-    for (let i = lastDateBlock; i >= 0; i--) {
-      if (s[i] === '{') {
-        let attempt = s.substring(0, i);
-        // Remove trailing comma
-        attempt = attempt.replace(/,\s*$/, '');
-        attempt += ']';
-        try {
-          const parsed = JSON.parse(attempt);
-          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-        } catch { continue; }
-      }
-    }
-  }
-
-  throw new Error('AI returned an incomplete response — could not repair JSON.');
+  throw new Error('Could not parse AI response. Please try again.');
 }
 
 function parseJSON(raw) {
-  const jsonStr = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '');
-  try { return JSON.parse(jsonStr); } catch {}
-  const match = jsonStr.match(/\[[\s\S]*\]/);
-  if (match) {
-    try { return JSON.parse(match[0]); } catch {}
-    return repairAndParse(match[0]);
-  }
-  return repairAndParse(jsonStr);
+  const s = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '');
+  try { return JSON.parse(s); } catch {}
+  const m = s.match(/\[[\s\S]*\]/);
+  if (m) { try { return JSON.parse(m[0]); } catch {} return repairAndParse(m[0]); }
+  return repairAndParse(s);
 }
 
-function fmt(date) { return date.toISOString().split('T')[0]; }
-function addDays(date, n) { const d = new Date(date); d.setDate(d.getDate() + n); return d; }
-function dayLabel(dateStr) {
-  return new Date(dateStr + 'T00:00:00').toLocaleDateString('en-US', {
-    weekday: 'short', month: 'short', day: 'numeric',
-  });
-}
+function fmt(d) { return d.toISOString().split('T')[0]; }
+function addDays(d, n) { const r = new Date(d); r.setDate(r.getDate() + n); return r; }
+function dayLabel(ds) { return new Date(ds + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }); }
 
 const MODELS = [
   { id: 'meta-llama/llama-4-scout-17b-16e-instruct', maxTokens: 8000 },
@@ -100,15 +52,9 @@ function normalizeTasks(rawPlan) {
       taskType: task.taskType,
       duration: task.duration,
       priority: task.priority,
-      content: (task.content || []).map((item) =>
-        typeof item === 'string'
-          ? { topic: item, description: '', code: '', exercise: '' }
-          : {
-              topic: item.topic || '',
-              description: item.description || '',
-              code: item.code || '',
-              exercise: item.exercise || '',
-            }
+      content: (task.content || []).map((c) =>
+        typeof c === 'string' ? { topic: c, description: '', code: '', exercise: '' }
+          : { topic: c.topic || '', description: c.description || '', code: c.code || '', exercise: c.exercise || '' }
       ),
       resources: task.resources || '',
       tip: task.tip || '',
@@ -117,38 +63,28 @@ function normalizeTasks(rawPlan) {
   }));
 }
 
-async function callAI(client, systemMsg, userMsg) {
+async function callAI(client, sysMsg, userMsg) {
   for (let i = 0; i < MODELS.length; i++) {
     const { id, maxTokens, compact } = MODELS[i];
-    const isLast = i === MODELS.length - 1;
-    const messages = compact
-      ? [{ role: 'user', content: userMsg }]
-      : [{ role: 'system', content: systemMsg }, { role: 'user', content: userMsg }];
+    const msgs = compact ? [{ role: 'user', content: userMsg }] : [{ role: 'system', content: sysMsg }, { role: 'user', content: userMsg }];
     try {
-      console.log(`Trying model: ${id}`);
-      const res = await client.chat.completions.create({
-        model: id, messages, temperature: 0.7, max_tokens: maxTokens,
-      });
-      const content = res.choices[0].message.content.trim();
-      console.log(`Model ${id} returned ${content.length} chars`);
-      return content;
+      console.log(`Trying: ${id}`);
+      const r = await client.chat.completions.create({ model: id, messages: msgs, temperature: 0.7, max_tokens: maxTokens });
+      const c = r.choices[0].message.content.trim();
+      console.log(`${id}: ${c.length} chars`);
+      return c;
     } catch (err) {
-      console.warn(`Model ${id} failed:`, err?.status, err?.message?.slice(0, 100));
-      const msg = err?.message || '';
-      const skip = [429, 400, 404, 413].includes(err?.status)
-        || msg.includes('rate_limit') || msg.includes('decommissioned')
-        || msg.includes('not found') || msg.includes('not exist')
-        || msg.includes('too large') || msg.includes('Request too large');
-      if (skip && !isLast) continue;
+      console.warn(`${id} failed:`, err?.status, err?.message?.slice(0, 80));
+      const m = err?.message || '';
+      if (([429, 400, 404, 413].includes(err?.status) || m.includes('rate_limit') || m.includes('not found') || m.includes('too large')) && i < MODELS.length - 1) continue;
       throw err;
     }
   }
-  throw new Error('All models are rate-limited. Try again later.');
+  throw new Error('All models rate-limited. Try again later.');
 }
 
-/**
- * Get plan metadata — how many weeks, date ranges.
- */
+// ── Public API ──
+
 export function getPlanWeeks(subjects) {
   if (!subjects || subjects.length === 0) return [];
   const today = fmt(new Date());
@@ -158,16 +94,13 @@ export function getPlanWeeks(subjects) {
   const effectiveStart = new Date(Math.max(Math.min(...starts), now));
   const furthest = new Date(Math.max(...deadlines));
   const totalDays = Math.max(1, Math.ceil((furthest - effectiveStart) / 86400000));
-
   const weeks = [];
   const totalWeeks = Math.ceil(totalDays / 7);
   for (let w = 0; w < totalWeeks; w++) {
     const start = addDays(effectiveStart, w * 7);
     const end = addDays(effectiveStart, Math.min((w + 1) * 7 - 1, totalDays - 1));
     weeks.push({
-      week: w + 1,
-      startDate: fmt(start),
-      endDate: fmt(end),
+      week: w + 1, startDate: fmt(start), endDate: fmt(end),
       days: Math.ceil((end - start) / 86400000) + 1,
       label: `Week ${w + 1}`,
       range: `${start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} – ${end.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`,
@@ -177,118 +110,144 @@ export function getPlanWeeks(subjects) {
 }
 
 /**
- * Generate plan for a single week only.
- * prevTopics: array of topic names already covered in earlier weeks.
+ * Step 1: Generate a syllabus outline for the subject.
+ * Returns array of topic names distributed across all days.
+ */
+async function generateSyllabus(client, subject, totalDays, prevTopics) {
+  const coveredStr = prevTopics.length > 0
+    ? `\nAlready covered (skip these): ${prevTopics.join(', ')}`
+    : '';
+
+  const msg = `Create a syllabus outline for "${subject.title}".
+Description: ${subject.description || 'none'}
+Total study days: ${totalDays}
+Study hours per day: ${subject.hoursPerDay || 2}
+${coveredStr}
+
+If this is a university course (e.g. BSc CSIT Tribhuvan University), use the REAL official syllabus units and chapters.
+
+Return ONLY a JSON array of topic names in curriculum order — one topic per day. Example:
+["Introduction and Setup","Variables and Data Types","Operators and Expressions","Control Flow: if/else","Control Flow: Loops","Functions and Methods","Arrays","Day 8 topic",...]
+
+Return exactly ${totalDays} topics. Each must be unique and specific. Progress from basics to advanced.`;
+
+  const raw = await callAI(client, 'You are a curriculum designer. Return only JSON.', msg);
+  const cleaned = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '');
+  try {
+    const parsed = JSON.parse(cleaned);
+    if (Array.isArray(parsed)) return parsed;
+  } catch {}
+  const m = cleaned.match(/\[[\s\S]*?\]/);
+  if (m) { try { return JSON.parse(m[0]); } catch {} }
+  return null;
+}
+
+/**
+ * Step 2: Generate detailed content for a single day following the syllabus.
+ */
+async function generateDayContent(client, subject, dateStr, dayNum, topicName, prevTopics) {
+  const sysPrompt = `You create detailed study content as JSON. Student learns ENTIRELY from your output — they should NOT need any other resource.
+
+RULES for content:
+- "description": 6+ sentences. Include: what it is, why it matters, exact syntax/structure, step-by-step how it works, a worked example with result, common mistakes
+- "code": 10+ lines of complete runnable code with // comments (for CS), or formulas with fully worked numerical solution (for math/science). NEVER empty.
+- "exercise": specific problem with concrete values (e.g. "Write a function that takes [3,1,4,1,5] and returns the second largest element")
+- Generate 3-5 content items per task. Each item teaches a sub-topic within the day's theme.
+- NO empty fields.`;
+
+  const userMsg = `Day ${dayNum} (${dateStr}) of "${subject.title}".
+Today's topic: "${topicName}"
+${subject.description ? `Course info: ${subject.description}` : ''}
+
+Generate 3-5 detailed sub-topics under "${topicName}". Each must have full teaching content.
+
+Return ONLY JSON (single object):
+{"date":"${dateStr}","tasks":[{"subjectId":"${subject.id}","subjectTitle":"${subject.title}","taskType":"Day ${dayNum}: ${topicName}","duration":${(subject.hoursPerDay || 2) * 60},"priority":"${subject.priority}","content":[{"topic":"<sub-topic>","description":"<6+ sentence teaching>","code":"<10+ line code>","exercise":"<specific problem>"},...],"resources":"<references>","tip":"<study advice>"}]}`;
+
+  const raw = await callAI(client, sysPrompt, userMsg);
+  let parsed;
+  try {
+    const cleaned = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '');
+    parsed = JSON.parse(cleaned);
+  } catch {
+    try { parsed = parseJSON(raw); } catch { return null; }
+  }
+  return Array.isArray(parsed) ? parsed[0] : parsed;
+}
+
+/**
+ * Main: Generate plan for a week.
+ * Step 1: Get syllabus outline (or use existing one).
+ * Step 2: Generate detailed content day by day.
  */
 export async function generateWeekPlan(subjects, weekInfo, prevTopics = []) {
   if (!subjects || subjects.length === 0) return [];
 
   const apiKey = import.meta.env.VITE_GROQ_API_KEY;
   if (!apiKey || apiKey === 'your_groq_api_key_here') {
-    throw new Error(
-      'Groq API key is not configured.\n\n' +
-      '1. Go to https://console.groq.com/keys\n' +
-      '2. Sign up free → Create API Key\n' +
-      '3. Add to .env: VITE_GROQ_API_KEY=gsk_...\n' +
-      '4. Restart dev server'
-    );
+    throw new Error('Groq API key not configured. Add VITE_GROQ_API_KEY to .env file.');
   }
 
   const today = fmt(new Date());
   const client = new Groq({ apiKey, dangerouslyAllowBrowser: true });
+  const subject = subjects[0]; // Subject-based: one subject at a time
 
-  // Filter subjects active in this week
-  const activeSubjects = subjects.filter((s) => {
-    const sStart = new Date(s.startDate || today);
-    const sEnd = new Date(s.deadline);
-    const wStart = new Date(weekInfo.startDate);
-    const wEnd = new Date(weekInfo.endDate);
-    return sStart <= wEnd && sEnd >= wStart;
-  });
+  if (!subject) return [];
 
-  if (activeSubjects.length === 0) return [];
+  // Calculate total course days for syllabus planning
+  const sStart = new Date(subject.startDate || today);
+  const sEnd = new Date(subject.deadline);
+  const now = new Date(); now.setHours(0, 0, 0, 0);
+  const courseStart = sStart < now ? now : sStart;
+  const totalCourseDays = Math.max(1, Math.ceil((sEnd - courseStart) / 86400000));
 
-  const activeList = activeSubjects.map((s, i) =>
-    `${i + 1}. ID:"${s.id}" | "${s.title}" | ${s.description || 'none'} | Start:${s.startDate || today} | Due:${s.deadline} | ${s.priority} | ${s.hoursPerDay || 2}h/day`
-  ).join('\n');
+  // Step 1: Generate syllabus outline for the ENTIRE course
+  console.log(`Step 1: Generating syllabus for ${subject.title} (${totalCourseDays} days)`);
+  let syllabus = await generateSyllabus(client, subject, totalCourseDays, prevTopics);
 
-  const systemPrompt = `You are a course professor creating a structured curriculum as JSON. Student learns ENTIRELY from your output.
+  if (!syllabus || syllabus.length === 0) {
+    // Fallback: generate without syllabus
+    syllabus = Array.from({ length: totalCourseDays }, (_, i) => `Topic ${i + 1}`);
+  }
 
-RULES:
-- If subject mentions university/semester/board, use EXACT syllabus
-- Each day must teach NEW topics — NEVER repeat a topic already listed in "covered so far"
-- Follow a logical curriculum order: basics → intermediate → advanced → revision
-- "description": 5+ sentences with definition, syntax/formula, worked example, common pitfalls
-- "code": complete runnable code with comments (10+ lines for CS), or formulas with worked solution
-- "exercise": specific solvable problem with concrete values
-- NO empty fields, NO generic content, NO repetition`;
+  // Ensure syllabus covers enough days
+  while (syllabus.length < totalCourseDays) {
+    syllabus.push(`Advanced Topic ${syllabus.length + 1}`);
+  }
 
-  // Generate 1 day at a time
+  await new Promise((r) => setTimeout(r, 1000));
+
+  // Step 2: Generate detailed content for each day in this week
   const allDays = [];
   const weekStart = new Date(weekInfo.startDate);
-  // Track ACTUAL topic names (not just taskType) to prevent repetition
-  let coveredTopics = [...prevTopics];
+  const dayOffset = Math.max(0, Math.ceil((weekStart - courseStart) / 86400000));
 
   for (let dayIdx = 0; dayIdx < weekInfo.days; dayIdx++) {
     const dayDate = addDays(weekStart, dayIdx);
     const dateStr = fmt(dayDate);
-    const dayNum = (weekInfo.week - 1) * 7 + dayIdx + 1;
+    const globalDayNum = dayOffset + dayIdx + 1;
+    const topicName = syllabus[dayOffset + dayIdx] || `Review & Practice Day ${globalDayNum}`;
 
-    const coveredStr = coveredTopics.length > 0
-      ? `ALREADY COVERED (do NOT repeat any of these): ${coveredTopics.slice(-20).join(' | ')}`
-      : '';
-
-    const userMsg = `Day ${dayNum} of the course (${dateStr}). ${coveredStr}
-
-Subjects: ${activeList}
-
-Generate the NEXT topics in the curriculum. Each task must cover NEW material not listed above.
-
-Return ONLY JSON (single object, not array):
-{"date":"${dateStr}","tasks":[{"subjectId":"<id>","subjectTitle":"<title>","taskType":"<Day ${dayNum}: specific topic name>","duration":<min>,"priority":"high|medium|low","content":[{"topic":"<unique topic>","description":"<5+ sentence detailed teaching>","code":"<complete code/formula>","exercise":"<specific problem>"}],"resources":"<ref>","tip":"<tip>"}]}`;
+    console.log(`Step 2: Day ${dayIdx + 1}/${weekInfo.days} — ${topicName}`);
 
     try {
-      console.log(`Generating day ${dayIdx + 1}/${weekInfo.days}: ${dateStr}`);
-      const raw = await callAI(client, systemPrompt, userMsg);
-
-      let parsed;
-      try {
-        const cleaned = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '');
-        parsed = JSON.parse(cleaned);
-      } catch {
-        parsed = parseJSON(raw);
-      }
-
-      const dayObj = Array.isArray(parsed) ? parsed[0] : parsed;
+      const dayObj = await generateDayContent(client, subject, dateStr, globalDayNum, topicName, prevTopics);
 
       if (dayObj && dayObj.tasks && dayObj.tasks.length > 0) {
-        const normalized = normalizeTasks([dayObj]);
-        allDays.push(...normalized);
-        // Track ALL generated topic names for continuity
-        for (const task of dayObj.tasks) {
-          coveredTopics.push(task.taskType || '');
-          if (task.content) {
-            for (const c of task.content) {
-              if (c.topic) coveredTopics.push(c.topic);
-            }
-          }
+        allDays.push(...normalizeTasks([dayObj]));
+        // Track covered topics
+        for (const t of dayObj.tasks) {
+          if (t.content) for (const c of t.content) { if (c.topic) prevTopics.push(c.topic); }
         }
       }
     } catch (err) {
       console.error(`Day ${dateStr} failed:`, err.message);
-      if (dayIdx === 0 && allDays.length === 0) {
-        throw new Error(err.message || 'AI generation failed');
-      }
+      if (dayIdx === 0 && allDays.length === 0) throw new Error(err.message);
     }
 
-    if (dayIdx < weekInfo.days - 1) {
-      await new Promise((r) => setTimeout(r, 800));
-    }
+    if (dayIdx < weekInfo.days - 1) await new Promise((r) => setTimeout(r, 1000));
   }
 
-  if (allDays.length === 0) {
-    throw new Error('Failed to generate content for this week. Please try again.');
-  }
-
+  if (allDays.length === 0) throw new Error('Failed to generate content. Please try again.');
   return allDays;
 }
